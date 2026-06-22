@@ -1,11 +1,11 @@
-import type { Project } from '@/db/project'
+import type { ProjectType } from '@/db/project'
 import { type Locale } from '@/i18n/dictionaries'
 import type { Dictionary } from '@/i18n/dictionaries'
 import { IconArrowRight, IconCalendar } from '@tabler/icons-react'
 import Link from 'next/link'
 
 interface ProjectCardProps {
-  project: Project
+  project: ProjectType
   lang: Locale
   dict: Dictionary
 }
