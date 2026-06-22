@@ -1,11 +1,10 @@
-import { type Locale } from '@/i18n/dictionaries'
-import type { Dictionary } from '@/i18n/dictionaries'
+import { DictionaryType, type Locale } from '@/i18n/dictionaries'
 import { IconBuilding, IconMapPin } from '@tabler/icons-react'
 import Image from 'next/image'
 
 interface HeroSectionProps {
   lang: Locale
-  dict: Dictionary
+  dict: DictionaryType
 }
 
 export default function HeroSection({ dict }: HeroSectionProps) {
