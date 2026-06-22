@@ -1,5 +1,6 @@
 import { DictionaryType } from '@/i18n/dictionaries'
 import { IconHeart } from '@tabler/icons-react'
+import Link from 'next/link'
 
 interface FooterProps {
   dict: DictionaryType
@@ -18,7 +19,13 @@ export default function Footer({ dict }: FooterProps) {
           text-neutral-500 dark:text-neutral-500"
         >
           <IconHeart size={14} className="text-amber-500 dark:text-amber-400" />
-          Erick Bilhalba Abella · Unipampa Alegrete
+          <Link
+            href="https://www.instagram.com/the.devick"
+            className="underline hover:text-neutral-600 dark:hover:text-neutral-600"
+          >
+            Erick Bilhalba Abella
+          </Link>{' '}
+          · Unipampa Alegrete
         </p>
         <p className="font-mono text-xs text-neutral-400 dark:text-neutral-600">
           {dict.footer.built}

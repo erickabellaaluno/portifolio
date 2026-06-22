@@ -1,6 +1,6 @@
 import { DictionaryType, type Locale } from '@/i18n/dictionaries'
+import UnipampaHorizontal from '@/images/unipampa/horizontal'
 import { IconBuilding, IconMapPin } from '@tabler/icons-react'
-import Image from 'next/image'
 
 interface HeroSectionProps {
   lang: Locale
@@ -70,7 +70,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
 
             <p
               className="mt-1 text-sm flex items-center gap-2
-              text-neutral-500 dark:text-neutral-500"
+              text-neutral-600 dark:text-neutral-400"
             >
               <IconMapPin
                 size={15}
@@ -96,25 +96,15 @@ export default function HeroSection({ dict }: HeroSectionProps) {
 
           {/* Unipampa logo card */}
           <div
-            className="shrink-0 flex flex-col items-center gap-3 p-5 rounded-2xl backdrop-blur-sm border
+            className="shrink-0 flex flex-col items-center gap-3 p-1 rounded-2xl backdrop-blur-sm border
             border-neutral-200 bg-neutral-50/80
-            dark:border-neutral-800 dark:bg-neutral-900/60"
+            dark:border-neutral-800 dark:bg-neutral-900/60 w-96"
           >
-            <Image
-              src="https://unipampa.edu.br/portal/sites/default/files/assinatura_unipampa_rgb.png"
-              alt="Universidade Federal do Pampa — Unipampa"
-              width={160}
-              height={89}
-              className="opacity-90 dark:invert-0 invert"
-              unoptimized
-            />
-            <span
-              className="text-xs font-mono text-center leading-tight
-              text-neutral-500 dark:text-neutral-500"
-            >
-              Campus Alegrete
+            <UnipampaHorizontal />
+            <span className="text-xs font-mono text-center leading-tight text-neutral-500 dark:text-neutral-500 p-4">
+              {dict.hero.university}
               <br />
-              Engenharia Elétrica
+              {dict.hero.role}
             </span>
           </div>
         </div>

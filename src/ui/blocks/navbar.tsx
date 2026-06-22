@@ -21,7 +21,7 @@ export default function Navbar({ lang, dict }: NavbarProps) {
           className="flex items-center gap-2 font-mono font-semibold text-sm text-neutral-800 hover:text-amber-500 dark:text-neutral-100 dark:hover:text-amber-400 transition-colors"
         >
           <IconCode size={18} className="text-amber-500 dark:text-amber-400" />
-          eba.dev
+          TheDevick
         </Link>
 
         <div className="flex items-center gap-3">
