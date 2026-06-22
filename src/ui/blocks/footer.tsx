@@ -1,8 +1,8 @@
-import type { Dictionary } from '@/i18n/dictionaries'
+import { DictionaryType } from '@/i18n/dictionaries'
 import { IconHeart } from '@tabler/icons-react'
 
 interface FooterProps {
-  dict: Dictionary
+  dict: DictionaryType
 }
 
 export default function Footer({ dict }: FooterProps) {
