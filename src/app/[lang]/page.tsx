@@ -1,4 +1,4 @@
-import { projects } from '@/db/projects'
+import { getProjects } from '@/db/projects'
 import { getDictionary, type Locale } from '@/i18n/dictionaries'
 import HeroSection from '@/ui/blocks/hero-section'
 import ProjectCard from '@/ui/components/project-card'
@@ -8,6 +8,7 @@ export default async function HomePage({
 }: {
   params: Promise<{ lang: Locale }>
 }) {
+  const projects = getProjects()
   const { lang } = await params
   const dict = getDictionary(lang)
 
