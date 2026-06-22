@@ -6,21 +6,43 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint --fix",
+    "test:unit": "vitest -c vitest.unit.config.mts",
+    "test:integration": "vitest -c vitest.integration.config.mts",
+    "test:e2e": "vitest -c vitest.e2e.config.mts",
+    "playground": "tsx src/playground"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.44.0",
+    "date-fns": "^4.4.0",
+    "date-fns-tz": "^3.2.0",
+    "geist": "^1.7.2",
+    "neverthrow": "^8.2.0",
     "next": "16.2.9",
+    "next-themes": "^0.4.6",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@eslint/compat": "^2.1.0",
+    "@eslint/eslintrc": "^3.3.5",
+    "@faker-js/faker": "^10.5.0",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
+    "@types/node": "^20.19.43",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "eslint-plugin-neverthrow": "^1.1.4",
+    "eslint-plugin-no-relative-import-paths": "^1.6.1",
+    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-react": "^7.37.5",
+    "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.22.4",
+    "typescript": "^5",
+    "typescript-eslint": "^8.61.1"
   }
 }
