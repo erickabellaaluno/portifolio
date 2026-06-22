@@ -1,5 +1,5 @@
 import { DictionaryType } from '@/i18n/dictionaries'
-import { IconHeart } from '@tabler/icons-react'
+import { IconBrandGithub } from '@tabler/icons-react'
 import Link from 'next/link'
 
 interface FooterProps {
@@ -13,23 +13,29 @@ export default function Footer({ dict }: FooterProps) {
       border-neutral-200 bg-neutral-50
       dark:border-neutral-800 dark:bg-transparent"
     >
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
-        <p
-          className="flex items-center gap-2
-          text-neutral-500 dark:text-neutral-500"
-        >
-          <IconHeart size={14} className="text-amber-500 dark:text-amber-400" />
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm  text-neutral-400 dark:text-neutral-500">
+        <p className="flex items-center gap-2">
+          <Link
+            href="https://github.com/erickabellaaluno/portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub repository"
+            className="hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+          >
+            <IconBrandGithub size={18} />
+          </Link>
           <Link
             href="https://www.instagram.com/the.devick"
-            className="underline hover:text-neutral-600 dark:hover:text-neutral-600"
+            className="underline hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram profile"
           >
             Erick Bilhalba Abella
           </Link>{' '}
           · Unipampa Alegrete
         </p>
-        <p className="font-mono text-xs text-neutral-400 dark:text-neutral-600">
-          {dict.footer.built}
-        </p>
+        <p className="text-xs transition-colors">{dict.footer.built}</p>
       </div>
     </footer>
   )
