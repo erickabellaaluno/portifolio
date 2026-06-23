@@ -1,4 +1,4 @@
-import { findUserByEmail } from '@/core/users.repository'
+import { usersRepository } from '@/core/users.repository'
 import getEnv from '@/lib/env'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
@@ -19,7 +19,7 @@ export async function POST(request: Request) {
     )
   }
 
-  const user = await findUserByEmail(email)
+  const user = await usersRepository.findByEmail(email)
 
   if (!user) {
     return NextResponse.json({ error: 'Invalid credentials.' }, { status: 401 })
