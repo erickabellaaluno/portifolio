@@ -4,49 +4,74 @@
 
 Portfólio acadêmico da disciplina de **Algoritmos e Programação** — [Universidade Federal do Pampa](https://unipampa.edu.br) (Campus Alegrete).
 
-Construído com Next.js, Tailwind CSS e TypeScript. O site expõe trabalhos do curso via rotas dinâmicas e uma pequena API interna.
+Construído com Next.js, Tailwind CSS, PostgreSQL e Drizzle ORM. O site exibe projetos do curso e uma API Rest.
 
 ---
 
 ## 🚀 Visão rápida
 
-- **Internacionalização (pt / en)** com redirecionamento automático.
-- **Tema claro/escuro** com `next-themes`.
+- **Internacionalização**: suporte a `/pt` e `/en`.
+- **Tema claro/escuro**: controlado por `next-themes`.
+- **Banco de dados**: Postgres via Docker e Drizzle ORM.
 - **API**: `GET /api/projects` e `GET /api/projects/:slug`.
-- **Sem biblioteca de UI**: componentes personalizados com Tailwind.
+- **Renderização de markdown**: Descrições dos projetos renderizados de Markdown para HTML.
+- **Sem biblioteca de UI**: componentes personalizados com Tailwind CSS.
 
 ---
 
-## ➕ Como adicionar um novo trabalho
+## 🔧 Como rodar
 
-1. Edite o arquivo `src/db/projects/index.ts` e adicione um novo item em `primitiveProjects`. Exemplo:
+1. Instale dependências:
 
-```ts
-{
-  slug: 'meu-trabalho', // URL: /pt/projects/meu-trabalho
-  title: { en: 'My Work', pt: 'Meu Trabalho' },
-  date: '2026-06-22',    // ISO 8601
-  tags: ['python'],
-  githubUrl: 'https://github.com/seuusuario/meu-trabalho', // opcional
-  classroomUrl: 'https://classroom.google.com/...',       // opcional
-}
+```bash
+npm install
 ```
 
-2. Crie as descrições em Markdown em `src/db/projects/descriptions/` com o padrão `{{slug}}.pt.md` e `{{slug}}.en.md`.
+2. Crie o banco de dados e inicialize o container:
 
-3. (Opcional) Rode `npm run lint` para verificar validações locais. O `prebuild` também executa `src/scripts/validate-projects.ts` antes do `build`.
+```bash
+docker compose up -d
+```
+
+3. Gere arquivos do Drizzle e rode o seed:
+
+```bash
+npx drizzle-kit generate
+npm run seed
+```
+
+4. Inicie o app em desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Abra `http://localhost:3000` e o app redirecionará para `/pt` ou `/en` conforme o idioma do navegador.
 
 ---
 
 ## 🔌 API
 
-- `GET /api/projects` — retorna a lista completa com descrições em ambos os idiomas.
-- `GET /api/projects/:slug` — retorna um único trabalho ou `404`.
+- `GET /api/projects` — retorna a lista de projetos.
+- `GET /api/projects/:slug` — retorna um projeto específico ou `404`.
 
 ---
 
-## ✅ Testes & validação
+## 🌐 Internacionalização
 
-- Testes: use `npm run test:unit`, `npm run test:integration` ou `npm run test:e2e` conforme necessário.
-- Validação de projetos: `src/scripts/validate-projects.ts` é executado automaticamente antes do `build`.
-- Linting e Tipagem: `ǹpm run lint`
+A lógica de redirecionamento de idioma está em `src/proxy.ts`. As páginas são geradas sob o diretório `src/app/[lang]`, com suporte a `en` e `pt`.
+
+---
+
+## ✅ Testes e validação
+
+- `npm run test:unit`
+- `npm run test:integration`
+- `npm run test:e2e`
+- `npm run lint`
+
+---
+
+## ☑️ Todo
+
+- [ ] Mudar o termo "descrição" por "conteúdo" nos projetos. E usar o termo "descrição" apenas para uma frase pequena, descrevendo por cima o projeto (Para listar)
