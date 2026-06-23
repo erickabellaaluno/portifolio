@@ -12,7 +12,7 @@
     "test:integration": "vitest -c vitest.integration.config.mts",
     "test:e2e": "vitest -c vitest.e2e.config.mts",
     "playground": "tsx src/playground",
-    "seed": "tsx src/db/seed.ts"
+    "seed": "tsx src/db/seed"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.44.0",
