@@ -52,7 +52,7 @@ export default function HeroSection({ dict }: HeroSectionProps) {
                 Bilhalba Abella
                 <span
                   aria-hidden
-                  className="absolute -bottom-2 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-400 via-amber-300 to-transparent"
+                  className="absolute -bottom-2 left-0 right-0 h-0.5 bg-linear-to-r from-amber-400 via-amber-300 to-transparent"
                 />
               </span>
             </h1>
