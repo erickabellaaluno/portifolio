@@ -27,11 +27,11 @@ describe('validate-project script', () => {
     .spyOn(console, 'error')
     .mockImplementation(() => {})
   const consoleLogSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
-  const exitSpy = vi
-    .spyOn(process, 'exit')
-    .mockImplementation((code?: number) => {
+  vi.spyOn(process, 'exit').mockImplementation(
+    (code?: string | number | null | undefined) => {
       throw new Error(`process.exit:${code}`)
-    })
+    },
+  )
 
   beforeEach(() => {
     vi.resetModules()
