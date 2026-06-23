@@ -1,3 +1,4 @@
+import { TranslationType } from '@/db/schema'
 import { integer, jsonb, pgTable, varchar } from 'drizzle-orm/pg-core'
 
 export type PrimitiveProjectType = {
@@ -13,11 +14,6 @@ export type ProjectType = PrimitiveProjectType & {
   description: { en: string; pt: string }
 }
 
-export type TranslationType = {
-  pt: string
-  en: string
-}
-
 export const projectsTable = pgTable('projects', {
   id: integer().primaryKey().generatedAlwaysAsIdentity(),
   slug: varchar('slug', { length: 255 }).notNull(),
@@ -28,7 +24,3 @@ export const projectsTable = pgTable('projects', {
   githubUrl: varchar('githubUrl', { length: 255 }),
   classroomUrl: varchar('classroomUrl', { length: 255 }),
 })
-
-export const schema = {
-  projects: projectsTable,
-}

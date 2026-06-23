@@ -1,5 +1,5 @@
 import db from '@/db'
-import { projectsTable } from '@/db/schema'
+import { projectsTable } from '@/db/schema/projects'
 import { eq } from 'drizzle-orm'
 
 export type ListProjectResultType = {

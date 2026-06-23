@@ -1,5 +1,5 @@
-import db from '.'
-import { projectsTable } from '@/db/schema'
+import db from '@/db'
+import { projectsTable } from '@/db/schema/projects'
 
 async function main() {
   await db.insert(projectsTable).values([
