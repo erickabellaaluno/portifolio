@@ -1,6 +1,6 @@
-import { projects } from '@/db/projects'
+import { getProjects } from '@/db/projects'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  return NextResponse.json({ data: projects }, { status: 200 })
+  return NextResponse.json({ data: await getProjects() }, { status: 200 })
 }

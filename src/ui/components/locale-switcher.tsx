@@ -1,9 +1,9 @@
-import { Dictionary, type Locale, locales } from '@/i18n/dictionaries'
+import { DictionaryType, type Locale, locales } from '@/i18n/dictionaries'
 import Link from 'next/link'
 
 interface LocaleSwitcherProps {
   lang: Locale
-  dict: Dictionary
+  dict: DictionaryType
 }
 
 export default function LocaleSwitcher({ lang, dict }: LocaleSwitcherProps) {
