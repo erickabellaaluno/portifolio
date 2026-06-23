@@ -1,105 +1,52 @@
 # Erick Bilhalba Abella — Portfólio
 
-Portfólio acadêmico da disciplina de **Algoritmos e Programação** na [Universidade Federal do Pampa](https://unipampa.edu.br) — Campus Alegrete, Engenharia Elétrica.
+> [Acesse o Site](https://portifolio-erickabella.vercel.app/)
 
-Criado usando NextJs, Tailwind, Typescript, Tabler Icons e Next Themes
+Portfólio acadêmico da disciplina de **Algoritmos e Programação** — [Universidade Federal do Pampa](https://unipampa.edu.br) (Campus Alegrete).
 
----
-
-## ✨ Funcionalidades
-
-- **Internacionalização (PT / EN)** — i18n nativo do Next.js com detecção automática do idioma do navegador; as rotas são prefixadas com `/pt` ou `/en`
-- **Tema claro / escuro** — gerenciado pelo `next-themes`.
-- **Dados estáticos** — sem banco de dados; todos os trabalhos ficam em um único arquivo TypeScript (`src/db/projects.ts`)
-- **API REST** — dois endpoints para consumir os dados dos trabalhos
-- **Tabler Icons** — todos os ícones vêm do `@tabler/icons-react`, nenhuma outra biblioteca de ícones
-- **Sem biblioteca de UI** — todos os componentes são feitos à mão com Tailwind CSS
-- **Totalmente tipado** — TypeScript em todo o projeto.
+Construído com Next.js, Tailwind CSS e TypeScript. O site expõe trabalhos do curso via rotas dinâmicas e uma pequena API interna.
 
 ---
 
-## 🚀 Como Rodar
+## 🚀 Visão rápida
 
-### Instalar dependências
-
-```bash
-git clone https://github.com/erickabellaaluno/portifolio.git
-cd portifolio
-npm install
-npm run dev
-```
-
-Abra [http://localhost:3000](http://localhost:3000) — você será redirecionado para `/pt` ou `/en` conforme o idioma do seu navegador.
-
-### Build para produção
-
-```bash
-npm run build
-npm start
-```
+- **Internacionalização (pt / en)** com redirecionamento automático.
+- **Tema claro/escuro** com `next-themes`.
+- **API**: `GET /api/projects` e `GET /api/projects/:slug`.
+- **Sem biblioteca de UI**: componentes personalizados com Tailwind.
 
 ---
 
-## ➕ Adicionando um Novo Trabalho
+## ➕ Como adicionar um novo trabalho
 
-Todos os trabalhos ficam em **[`src/db/projects/index.ts`](/src/db/projects/index.ts)**. Adicione uma nova entrada no array `primitiveProjects`:
+1. Edite o arquivo `src/db/projects/index.ts` e adicione um novo item em `primitiveProjects`. Exemplo:
 
 ```ts
 {
-  slug: "meu-trabalho",         // Usado na URL: /pt/projects/meu-trabalho
-  title: {
-    en: "My Work",
-    pt: "Meu Trabalho",
-  },
-  date: "2024-06-18",           // ISO 8601
-  tags: ["C", "Algoritmos"],
-  githubUrl: "https://github.com/seuusuario/meu-trabalho",   // opcional
-  classroomUrl: "https://classroom.google.com/...",          // opcional
-},
-```
-
-Para adicionar a descrição, você deve criar dois arquivos mardown dentro de [`src/db/projects/descriptions`](/src/db/projects/descriptions/), seguindo esse padrão: `{{slug}}.{{lang}}.md`, onde as líguas disponíveis são `pt` e `en`
-
----
-
-## 🔌 API REST
-
-Dois endpoints disponíveis, úteis para integrações ou consultas rápidas.
-
-### `GET /api/projects`
-
-Retorna todos os trabalhos.
-
-```json
-{
-  "data": [
-    {
-      "slug": "bubble-sort",
-      "title": { "en": "Bubble Sort", "pt": "Ordenação por Bolha" },
-      "description": { "en": "...", "pt": "..." },
-      "date": "2024-04-02",
-      "tags": ["C", "Ordenação", "Algoritmos"],
-      "githubUrl": "https://github.com/...",
-      "classroomUrl": "https://classroom.google.com/..."
-    }
-  ]
+  slug: 'meu-trabalho', // URL: /pt/projects/meu-trabalho
+  title: { en: 'My Work', pt: 'Meu Trabalho' },
+  date: '2026-06-22',    // ISO 8601
+  tags: ['python'],
+  githubUrl: 'https://github.com/seuusuario/meu-trabalho', // opcional
+  classroomUrl: 'https://classroom.google.com/...',       // opcional
 }
 ```
 
-### `GET /api/projects/:slug`
+2. Crie as descrições em Markdown em `src/db/projects/descriptions/` com o padrão `{{slug}}.pt.md` e `{{slug}}.en.md`.
 
-Retorna um trabalho pelo slug, ou `404` se não encontrado.
-
-```json
-{
-  "data": { ... }
-}
-```
-
-```json
-{ "error": "Project not found" }   // 404
-```
+3. (Opcional) Rode `npm run lint` para verificar validações locais. O `prebuild` também executa `src/scripts/validate-projects.ts` antes do `build`.
 
 ---
 
-*Apoio: Abella Bilhalba Engenharia — Serviços em Engenharia Elétrica.*
+## 🔌 API
+
+- `GET /api/projects` — retorna a lista completa com descrições em ambos os idiomas.
+- `GET /api/projects/:slug` — retorna um único trabalho ou `404`.
+
+---
+
+## ✅ Testes & validação
+
+- Testes: use `npm run test:unit`, `npm run test:integration` ou `npm run test:e2e` conforme necessário.
+- Validação de projetos: `src/scripts/validate-projects.ts` é executado automaticamente antes do `build`.
+- Linting e Tipagem: `ǹpm run lint`
