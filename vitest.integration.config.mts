@@ -1,13 +1,11 @@
 import { loadEnv } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
+  plugins: [],
   test: {
     env: loadEnv('test', process.cwd(), ''),
     include: ['tests/integration/**/*.{test,spec}.?(c|m)[jt]s?(x)'],
-    setupFiles: ['tests/utils/setup/index.ts'],
     fileParallelism: false,
   },
 })
