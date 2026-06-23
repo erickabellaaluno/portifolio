@@ -11,7 +11,6 @@ export const primitiveProjects: PrimitiveProjectType[] = [
     },
     date: '2026-03-31',
     tags: ['python'],
-    githubUrl: 'https://github.com/erickabella/hello-world',
     classroomUrl:
       'https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODU3OTMyNTMyNjI1/details/',
   },

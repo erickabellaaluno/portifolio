@@ -42,7 +42,7 @@ npm start
 
 ## ➕ Adicionando um Novo Trabalho
 
-Todos os trabalhos ficam em **`src/db/projects.ts`**. Adicione uma nova entrada no array `projects`:
+Todos os trabalhos ficam em **[`src/db/projects/index.ts`](/src/db/projects/index.ts)**. Adicione uma nova entrada no array `primitiveProjects`:
 
 ```ts
 {
@@ -51,16 +51,14 @@ Todos os trabalhos ficam em **`src/db/projects.ts`**. Adicione uma nova entrada 
     en: "My Work",
     pt: "Meu Trabalho",
   },
-  description: {
-    en: "Short description in English.",
-    pt: "Descrição curta em português.",
-  },
-  date: "2024-06-01",           // ISO 8601
+  date: "2024-06-18",           // ISO 8601
   tags: ["C", "Algoritmos"],
   githubUrl: "https://github.com/seuusuario/meu-trabalho",   // opcional
   classroomUrl: "https://classroom.google.com/...",          // opcional
 },
 ```
+
+Para adicionar a descrição, você deve criar dois arquivos mardown dentro de [`src/db/projects/descriptions`](/src/db/projects/descriptions/), seguindo esse padrão: `{{slug}}.{{lang}}.md`, onde as líguas disponíveis são `pt` e `en`
 
 ---
 
