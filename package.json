@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "prebuild": "tsx src/scripts/validate-projects.ts",
     "build": "next build",
     "start": "next start",
