@@ -3,6 +3,7 @@ CREATE TABLE "projects" (
 	"slug" varchar(255) NOT NULL,
 	"title" jsonb NOT NULL,
 	"description" jsonb NOT NULL,
+	"content" jsonb NOT NULL,
 	"date" varchar(255) NOT NULL,
 	"tags" varchar(255)[] NOT NULL,
 	"githubUrl" varchar(255),
