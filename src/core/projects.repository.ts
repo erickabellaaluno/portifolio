@@ -19,6 +19,7 @@ export type FindProjectType = {
   slug: string
   title: { en: string; pt: string }
   description: { en: string; pt: string }
+  content: { en: string; pt: string }
   tags: string[]
   githubUrl: string | null
   classroomUrl: string | null

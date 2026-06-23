@@ -8,6 +8,10 @@ async function main() {
         en: '...',
         pt: '...',
       },
+      content: {
+        en: '...',
+        pt: '...',
+      },
       slug: 'lista-15-exercicios',
       title: {
         en: '15 Exercises — Choose and Solve',
@@ -20,6 +24,10 @@ async function main() {
     },
     {
       description: {
+        en: '...',
+        pt: '...',
+      },
+      content: {
         en: '...',
         pt: '...',
       },
@@ -38,6 +46,10 @@ async function main() {
         en: '...',
         pt: '...',
       },
+      content: {
+        en: '...',
+        pt: '...',
+      },
       slug: 'geracao-avaliacao-exercicios-algoritmos-llms',
       title: {
         en: 'Generation and Evaluation of Algorithm Exercises with LLMs',
@@ -50,6 +62,10 @@ async function main() {
     },
     {
       description: {
+        en: '...',
+        pt: '...',
+      },
+      content: {
         en: '...',
         pt: '...',
       },
@@ -68,6 +84,10 @@ async function main() {
         en: '...',
         pt: '...',
       },
+      content: {
+        en: '...',
+        pt: '...',
+      },
       slug: 'exercicios-listas-vetores-arrays-python',
       title: {
         en: 'Lists / Vectors / Arrays Exercises in Python',
@@ -80,6 +100,10 @@ async function main() {
     },
     {
       description: {
+        en: '...',
+        pt: '...',
+      },
+      content: {
         en: '...',
         pt: '...',
       },
@@ -98,6 +122,10 @@ async function main() {
         en: '...',
         pt: '...',
       },
+      content: {
+        en: '...',
+        pt: '...',
+      },
       slug: 'gerar-versoes-codigo',
       title: {
         en: 'Generate Code Versions for Visual Results',
@@ -110,6 +138,10 @@ async function main() {
     },
     {
       description: {
+        en: '...',
+        pt: '...',
+      },
+      content: {
         en: '...',
         pt: '...',
       },
@@ -128,6 +160,10 @@ async function main() {
         en: '...',
         pt: '...',
       },
+      content: {
+        en: '...',
+        pt: '...',
+      },
       slug: 'escolher-entregar-problemas-engenharia',
       title: {
         en: 'Choose and Submit One of Two Proposed Engineering Problems',
@@ -140,6 +176,10 @@ async function main() {
     },
     {
       description: {
+        en: '...',
+        pt: '...',
+      },
+      content: {
         en: '...',
         pt: '...',
       },
@@ -158,6 +198,10 @@ async function main() {
         en: '...',
         pt: '...',
       },
+      content: {
+        en: '...',
+        pt: '...',
+      },
       slug: 'escolher-resolver-problema-engenharia',
       title: {
         en: 'Choose and Solve an Engineering Problem',
@@ -170,6 +214,10 @@ async function main() {
     },
     {
       description: {
+        en: '...',
+        pt: '...',
+      },
+      content: {
         en: '...',
         pt: '...',
       },
@@ -188,6 +236,10 @@ async function main() {
         en: '...',
         pt: '...',
       },
+      content: {
+        en: '...',
+        pt: '...',
+      },
       slug: 'modularizacao-codigo-avaliacao-llms',
       title: {
         en: 'Code Modularization and LLM Evaluation (in class)',
@@ -200,6 +252,10 @@ async function main() {
     },
     {
       description: {
+        en: '...',
+        pt: '...',
+      },
+      content: {
         en: '...',
         pt: '...',
       },
