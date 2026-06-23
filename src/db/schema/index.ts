@@ -1,4 +1,5 @@
 import { projectsTable } from '@/db/schema/projects'
+import { usersTable } from '@/db/schema/users'
 
 export type TranslationType = {
   pt: string
@@ -7,4 +8,5 @@ export type TranslationType = {
 
 export const schema = {
   projects: projectsTable,
+  users: usersTable,
 }
