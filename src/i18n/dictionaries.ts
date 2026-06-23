@@ -1,6 +1,10 @@
-export type Locale = 'en' | 'pt'
+export type LocaleType = 'en' | 'pt'
 
-export type DictionaryType = {
+export const locales: LocaleType[] = ['en', 'pt']
+
+export const defaultLocale: LocaleType = 'pt'
+
+export interface DictionaryInterface {
   nav: {
     home: string
     works: string
@@ -31,10 +35,7 @@ export type DictionaryType = {
   }
 }
 
-export const locales: Locale[] = ['en', 'pt']
-export const defaultLocale: Locale = 'pt'
-
-const dictionaries: { en: DictionaryType; pt: DictionaryType } = {
+const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
   en: {
     nav: {
       home: 'Home',
@@ -99,6 +100,6 @@ const dictionaries: { en: DictionaryType; pt: DictionaryType } = {
   },
 } as const
 
-export function getDictionary(locale: Locale): DictionaryType {
+export function getDictionary(locale: LocaleType): DictionaryInterface {
   return dictionaries[locale] ?? dictionaries[defaultLocale]
 }

@@ -1,5 +1,5 @@
 import { getProjectBySlug, getProjects } from '@/db/projects'
-import { getDictionary, type Locale, locales } from '@/i18n/dictionaries'
+import { getDictionary, locales, LocaleType } from '@/i18n/dictionaries'
 import MarkdownRenderer from '@/ui/blocks/markdown-renderer'
 import LinkButton from '@/ui/components/button/link-button'
 import Divider from '@/ui/components/divider'
@@ -25,7 +25,7 @@ export async function generateStaticParams() {
 export default async function ProjectPage({
   params,
 }: {
-  params: Promise<{ lang: Locale; slug: string }>
+  params: Promise<{ lang: LocaleType; slug: string }>
 }) {
   const { lang, slug } = await params
   const dict = getDictionary(lang)

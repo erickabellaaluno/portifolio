@@ -1,12 +1,12 @@
 import { getProjects } from '@/db/projects'
-import { getDictionary, type Locale } from '@/i18n/dictionaries'
+import { getDictionary, LocaleType } from '@/i18n/dictionaries'
 import HeroSection from '@/ui/blocks/hero-section'
 import ProjectCard from '@/ui/components/project-card'
 
 export default async function HomePage({
   params,
 }: {
-  params: Promise<{ lang: Locale }>
+  params: Promise<{ lang: LocaleType }>
 }) {
   const projects = getProjects()
   const { lang } = await params

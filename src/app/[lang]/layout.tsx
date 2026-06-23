@@ -1,5 +1,5 @@
 import '@/app/globals.css'
-import { getDictionary, type Locale, locales } from '@/i18n/dictionaries'
+import { getDictionary, locales, LocaleType } from '@/i18n/dictionaries'
 import Footer from '@/ui/blocks/footer'
 import Navbar from '@/ui/blocks/navbar'
 import ThemeProvider from '@/ui/providers/theme-provider'
@@ -22,21 +22,21 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode
-  params: Promise<{ lang: Locale }>
+  params: Promise<{ lang: string }>
 }) {
-  const { lang } = await params
-  const dict = getDictionary(lang)
+  const language = (await params).lang as LocaleType
+  const dict = getDictionary(language)
 
   return (
     <html
-      lang={lang}
+      lang={language}
       suppressHydrationWarning
       className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth h-full antialiased`}
       data-scroll-behavior="smooth"
     >
       <body className="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 min-h-screen flex flex-col antialiased transition-colors duration-150">
         <ThemeProvider>
-          <Navbar lang={lang} dict={dict} />
+          <Navbar lang={language} dict={dict} />
           <main className="flex-1">{children}</main>
           <Footer dict={dict} />
         </ThemeProvider>

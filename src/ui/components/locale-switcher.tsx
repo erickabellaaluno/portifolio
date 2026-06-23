@@ -1,13 +1,13 @@
-import { DictionaryType, type Locale, locales } from '@/i18n/dictionaries'
+import { DictionaryInterface, locales, LocaleType } from '@/i18n/dictionaries'
 import Link from 'next/link'
 
 interface LocaleSwitcherProps {
-  lang: Locale
-  dict: DictionaryType
+  lang: LocaleType
+  dict: DictionaryInterface
 }
 
 export default function LocaleSwitcher({ lang, dict }: LocaleSwitcherProps) {
-  const otherLocale = locales.find((l) => l !== lang) as Locale
+  const otherLocale = locales.find((l) => l !== lang) as LocaleType
   return (
     <Link
       href={`/${otherLocale}`}

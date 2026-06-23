@@ -1,13 +1,13 @@
 import type { ProjectType } from '@/db/types'
-import { type Locale } from '@/i18n/dictionaries'
-import { DictionaryType } from '@/i18n/dictionaries'
+import { LocaleType } from '@/i18n/dictionaries'
+import { DictionaryInterface } from '@/i18n/dictionaries'
 import { IconArrowRight, IconCalendar } from '@tabler/icons-react'
 import Link from 'next/link'
 
 interface ProjectCardProps {
   project: ProjectType
-  lang: Locale
-  dict: DictionaryType
+  lang: LocaleType
+  dict: DictionaryInterface
 }
 
 export default function ProjectCard({ project, lang, dict }: ProjectCardProps) {

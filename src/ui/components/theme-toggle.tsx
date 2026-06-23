@@ -1,10 +1,10 @@
-import { DictionaryType } from '@/i18n/dictionaries'
+import { DictionaryInterface } from '@/i18n/dictionaries'
 import { IconMoon, IconSun } from '@tabler/icons-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 interface ThemeToggleProps {
-  dict: DictionaryType
+  dict: DictionaryInterface
 }
 export default function ThemeToggle({ dict }: ThemeToggleProps) {
   const [mounted, setMounted] = useState(false)

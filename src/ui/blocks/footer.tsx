@@ -1,9 +1,9 @@
-import { DictionaryType } from '@/i18n/dictionaries'
+import { DictionaryInterface } from '@/i18n/dictionaries'
 import { IconBrandGithub } from '@tabler/icons-react'
 import Link from 'next/link'
 
 interface FooterProps {
-  dict: DictionaryType
+  dict: DictionaryInterface
 }
 
 export default function Footer({ dict }: FooterProps) {

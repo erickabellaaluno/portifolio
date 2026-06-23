@@ -1,10 +1,10 @@
-import { DictionaryType, type Locale } from '@/i18n/dictionaries'
+import { DictionaryInterface, LocaleType } from '@/i18n/dictionaries'
 import UnipampaHorizontal from '@/images/unipampa/horizontal'
 import { IconBuilding, IconMapPin } from '@tabler/icons-react'
 
 interface HeroSectionProps {
-  lang: Locale
-  dict: DictionaryType
+  lang: LocaleType
+  dict: DictionaryInterface
 }
 
 export default function HeroSection({ dict }: HeroSectionProps) {

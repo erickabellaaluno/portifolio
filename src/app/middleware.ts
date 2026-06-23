@@ -1,14 +1,14 @@
-import { defaultLocale, type Locale, locales } from '@/i18n/dictionaries'
+import { defaultLocale, locales, LocaleType } from '@/i18n/dictionaries'
 import { NextRequest, NextResponse } from 'next/server'
 
-function getLocale(request: NextRequest): Locale {
+function getLocale(request: NextRequest): LocaleType {
   const acceptLanguage = request.headers.get('accept-language') ?? ''
   const preferred = acceptLanguage
     .split(',')
     .map((part) => part.split(';')[0].trim().slice(0, 2).toLowerCase())
 
   for (const lang of preferred) {
-    if (locales.includes(lang as Locale)) return lang as Locale
+    if (locales.includes(lang as LocaleType)) return lang as LocaleType
   }
   return defaultLocale
 }

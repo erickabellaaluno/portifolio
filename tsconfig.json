@@ -39,6 +39,8 @@
     "vitest.unit.config.mts",
     "vitest.e2e.config.mts",
     "vitest.integration.config.mts",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

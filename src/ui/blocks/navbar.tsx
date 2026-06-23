@@ -1,14 +1,14 @@
 'use client'
 
-import { DictionaryType, type Locale } from '@/i18n/dictionaries'
+import { DictionaryInterface, LocaleType } from '@/i18n/dictionaries'
 import LocaleSwitcher from '@/ui/components/locale-switcher'
 import ThemeToggle from '@/ui/components/theme-toggle'
 import { IconCode } from '@tabler/icons-react'
 import Link from 'next/link'
 
 interface NavbarProps {
-  lang: Locale
-  dict: DictionaryType
+  lang: LocaleType
+  dict: DictionaryInterface
 }
 
 export default function Navbar({ lang, dict }: NavbarProps) {
