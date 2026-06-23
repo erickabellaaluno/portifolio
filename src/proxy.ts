@@ -1,5 +1,6 @@
 import { defaultLocale, locales, LocaleType } from '@/i18n/dictionaries'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
+import { NextRequest } from 'next/server'
 
 function getLocale(request: NextRequest): LocaleType {
   const acceptLanguage = request.headers.get('accept-language') ?? ''
@@ -10,20 +11,12 @@ function getLocale(request: NextRequest): LocaleType {
   for (const lang of preferred) {
     if (locales.includes(lang as LocaleType)) return lang as LocaleType
   }
+
   return defaultLocale
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
-
-  // Skip Next.js internals and static files
-  if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/api') ||
-    pathname.includes('.')
-  ) {
-    return NextResponse.next()
-  }
 
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
@@ -37,5 +30,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|api|.*\\..*).*)'],
+  matcher: '/((?!api|_next/static|_next/image|.*\\.png$).*)',
 }
