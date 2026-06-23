@@ -25,6 +25,17 @@ export type FindProjectType = {
   classroomUrl: string | null
 }
 
+export type SaveProjectType = {
+  date: string
+  slug: string
+  title: { en: string; pt: string }
+  description: { en: string; pt: string }
+  content: { en: string; pt: string }
+  tags: string[]
+  githubUrl?: string
+  classroomUrl?: string
+}
+
 async function list(): Promise<ListProjectsResultType> {
   const result = await db
     .select({
@@ -48,7 +59,21 @@ async function findBySlug(slug: string): Promise<FindProjectType | undefined> {
   return result
 }
 
+async function save(project: SaveProjectType) {
+  const result = await db.insert(projectsTable).values(project)
+
+  return result
+}
+
+async function saveMany(projects: SaveProjectType[]) {
+  const result = await db.insert(projectsTable).values(projects)
+
+  return result
+}
+
 export const projectsRepository = {
   findBySlug,
   list,
+  save,
+  saveMany,
 }
