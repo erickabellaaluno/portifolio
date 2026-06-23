@@ -1,4 +1,4 @@
-import { getProjectBySlug } from '@/db/projects'
+import { projectsRepository } from '@/core/projects.repository'
 import { NextResponse } from 'next/server'
 
 export async function GET(
@@ -6,7 +6,7 @@ export async function GET(
   { params }: { params: Promise<{ slug: string }> },
 ) {
   const { slug } = await params
-  const project = getProjectBySlug(slug)
+  const project = await projectsRepository.findBySlug(slug)
 
   if (!project) {
     return NextResponse.json({ error: 'Project not found' }, { status: 404 })

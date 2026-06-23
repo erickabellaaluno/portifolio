@@ -1,6 +1,8 @@
-import { getProjects } from '@/db/projects'
+import { projectsRepository } from '@/core/projects.repository'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-  return NextResponse.json({ data: await getProjects() }, { status: 200 })
+  const projects = await projectsRepository.list()
+
+  return NextResponse.json({ data: projects }, { status: 200 })
 }
