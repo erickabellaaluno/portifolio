@@ -1,0 +1,52 @@
+'use client'
+
+import { ListProjectResultType } from '@/core/projects.repository'
+import { apiClient } from '@/core/rest/client'
+import { DictionaryInterface } from '@/lib/dictionaries'
+import { IconLoader2, IconTrash } from '@tabler/icons-react'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+
+export default function DeleteProjectButton({
+  project,
+  dict,
+}: {
+  project: ListProjectResultType
+  dict: DictionaryInterface
+}) {
+  const router = useRouter()
+  const [isDeleting, setIsDeleting] = useState(false)
+
+  const handleDelete = async () => {
+    if (!confirm(dict.admin.projects.confirmDelete)) return
+
+    setIsDeleting(true)
+    const result = await apiClient.projects.destroy({
+      params: { slug: project.slug },
+    })
+
+    if (result.status === 200) {
+      router.refresh()
+    }
+
+    if (result.status === 404) {
+      alert(dict.admin.projects.notFound)
+    }
+
+    if (result.status !== 200) {
+      alert(dict.errors.systemError)
+    }
+
+    setIsDeleting(false)
+  }
+
+  return (
+    <button
+      onClick={handleDelete}
+      disabled={isDeleting}
+      className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 disabled:opacity-50 transition-colors text-sm hover:cursor-pointer"
+    >
+      {isDeleting ? <IconLoader2 className="animate-spin" /> : <IconTrash />}
+    </button>
+  )
+}
