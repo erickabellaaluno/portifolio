@@ -16,6 +16,7 @@ export default function LogoutButton({ children }: LogoutButtonProps) {
         await clearSession()
         router.refresh()
       }}
+      className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors hover:cursor-pointer"
     >
       {children}
     </button>

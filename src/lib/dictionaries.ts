@@ -44,6 +44,17 @@ export interface DictionaryInterface {
       systemError: string
     }
   }
+  admin: {
+    title: string
+    logout: string
+    return: string
+    projects: {
+      new: string
+      create: string
+      empty: string
+      confirmDelete: string
+    }
+  }
 }
 
 const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
@@ -88,6 +99,17 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
       emailPlaceholder: 'your@email.com',
       password: 'Password',
     },
+    admin: {
+      title: 'Admin Panel',
+      logout: 'Logout',
+      return: '← Back to Admin',
+      projects: {
+        new: '+ New Project',
+        create: 'Create New Project',
+        empty: 'No projects yet. Create one to get started!',
+        confirmDelete: 'Are you sure you want to delete this project?',
+      },
+    },
   },
   pt: {
     nav: {
@@ -129,6 +151,17 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
       email: 'Email',
       emailPlaceholder: 'seu@email.com',
       password: 'Senha',
+    },
+    admin: {
+      title: 'Painel do Administrador',
+      logout: 'Sair',
+      return: '← Voltar ao Painel',
+      projects: {
+        new: '+ Novo Projeto',
+        create: 'Criar um Novo Projeto',
+        empty: 'Sem projetos ainda. Crie um para iniciar!',
+        confirmDelete: 'Você tem certeza que quer deletar esse projeto?',
+      },
     },
   },
 } as const

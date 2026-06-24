@@ -1,7 +1,7 @@
 import { projectsRepository } from '@/core/projects.repository'
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
 import HeroSection from '@/ui/blocks/hero-section'
-import ProjectCard from '@/ui/components/project-card'
+import ProjectCard from '@/ui/components/projects/card'
 
 export default async function HomePage({
   params,
