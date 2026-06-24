@@ -5,7 +5,7 @@ import { ServerInferRequest, ServerInferResponses } from '@ts-rest/core'
 import { tsr } from '@ts-rest/serverless/next'
 import bcrypt from 'bcryptjs'
 
-async function handleLogin(
+export async function handleLogin(
   request: ServerInferRequest<typeof contract.auth.login>,
 ): Promise<ServerInferResponses<typeof contract.auth.login>> {
   const user = await usersRepository.findByEmail(request.body.email)
