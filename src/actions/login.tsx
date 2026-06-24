@@ -24,6 +24,5 @@ export async function loginAction(
     return true
   }
 
-  console.log(response)
   return response.body.error.message
 }

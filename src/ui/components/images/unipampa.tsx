@@ -1,8 +1,8 @@
-import darkHorizontal from '@/images/unipampa/dark_horizontal.png'
-import lightHorizontal from '@/images/unipampa/light_horizontal.png'
+import darkHorizontal from '@/../public/images/unipampa/dark_horizontal.png'
+import lightHorizontal from '@/../public/images/unipampa/light_horizontal.png'
 import Image from 'next/image'
 
-export default function UnipampaHorizontal() {
+export function UnipampaHorizontal() {
   return (
     <>
       <Image
