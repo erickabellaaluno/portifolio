@@ -19,8 +19,8 @@ export const authContract = c.router(
         }),
         401: z.object({
           error: z.object({
-            message: z.string(),
-            code: z.number(),
+            message: z.literal('Invalid credentials.'),
+            code: z.literal(1),
           }),
         }),
       },

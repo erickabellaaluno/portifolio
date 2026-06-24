@@ -2,11 +2,13 @@
 
 import { apiClient } from '@/core/rest/client'
 import { contract } from '@/core/rest/contract'
+import { DictionaryInterface } from '@/lib/dictionaries'
 import { cookies } from 'next/headers'
 import { z } from 'zod'
 
 export async function loginAction(
   data: z.infer<typeof contract.auth.login.body>,
+  dict: DictionaryInterface,
 ): Promise<true | string> {
   const response = await apiClient.auth.login({ body: data })
 
@@ -24,5 +26,9 @@ export async function loginAction(
     return true
   }
 
-  return response.body.error.message
+  if (response.body.code === 1) {
+    return dict.login.error.invalidCredentials
+  }
+
+  return dict.login.error.systemError
 }

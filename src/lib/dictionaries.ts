@@ -34,9 +34,15 @@ export interface DictionaryInterface {
     switch: string
   }
   login: {
-    invalidCredentials: string
-    systemError: string
-    validationError: string
+    title: string
+    description: string
+    email: string
+    emailPlaceholder: string
+    password: string
+    error: {
+      invalidCredentials: string
+      systemError: string
+    }
   }
 }
 
@@ -72,9 +78,15 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
       switch: 'Português',
     },
     login: {
-      invalidCredentials: 'Invalid email or password.',
-      systemError: 'A system error occurred. Please try again.',
-      validationError: 'Validation error',
+      title: 'Sign in',
+      description: 'Welcome back to your portfolio',
+      error: {
+        invalidCredentials: 'Invalid email or password.',
+        systemError: 'A system error occurred. Please try again.',
+      },
+      email: 'Email',
+      emailPlaceholder: 'your@email.com',
+      password: 'Password',
     },
   },
   pt: {
@@ -108,9 +120,15 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
       switch: 'English',
     },
     login: {
-      invalidCredentials: 'Email ou senha inválidos.',
-      systemError: 'Ocorreu um erro no sistema. Tente novamente.',
-      validationError: 'Erro de validação',
+      title: 'Entrar',
+      description: 'Bem vindo de volta ao seu portfólio',
+      error: {
+        invalidCredentials: 'Email ou senha inválidos.',
+        systemError: 'Ocorreu um erro no sistema. Tente novamente.',
+      },
+      email: 'Email',
+      emailPlaceholder: 'seu@email.com',
+      password: 'Senha',
     },
   },
 } as const

@@ -1,4 +1,4 @@
-import { LocaleType } from '@/lib/dictionaries'
+import { getDictionary, LocaleType } from '@/lib/dictionaries'
 import LoginForm from '@/ui/blocks/forms/login'
 
 export default async function LoginPage({
@@ -9,25 +9,23 @@ export default async function LoginPage({
   searchParams: Promise<{ email?: string; callbackUrl?: string }>
 }) {
   const { lang } = await params
-  const { email = '', callbackUrl = '/' } = await searchParams
+  const { email = '' } = await searchParams
+
+  const dict = getDictionary(lang as LocaleType)
 
   return (
     <main className="flex items-center justify-center min-h-screen px-4">
       <div className="w-full max-w-md">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-2">
-            Sign In
+            {dict.login.title}
           </h1>
           <p className="text-neutral-600 dark:text-neutral-400">
-            Welcome back to your portfolio
+            {dict.login.description}
           </p>
         </div>
 
-        <LoginForm
-          callbackUrl={callbackUrl}
-          email={email}
-          lang={lang as LocaleType}
-        />
+        <LoginForm email={email} lang={lang as LocaleType} dict={dict} />
       </div>
     </main>
   )

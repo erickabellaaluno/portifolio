@@ -2,23 +2,28 @@
 
 import { loginAction } from '@/actions/login'
 import { contract } from '@/core/rest/contract'
-import { LocaleType } from '@/lib/dictionaries'
+import { DictionaryInterface, LocaleType } from '@/lib/dictionaries'
 import FormButton from '@/ui/components/button/form-button'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { redirect } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { en, pt } from 'zod/v4/locales'
 
 const loginSchema = contract.auth.login.body
 type LoginSchemaType = z.infer<typeof loginSchema>
 
 export default function LoginForm({
   email: initialEmail,
+  lang,
+  dict,
 }: {
-  callbackUrl: string
   email: string
   lang: LocaleType
+  dict: DictionaryInterface
 }) {
+  z.config(lang === 'pt' ? pt() : en())
+
   const form = useForm<LoginSchemaType>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -30,7 +35,7 @@ export default function LoginForm({
   const onSubmit: SubmitHandler<LoginSchemaType> = async (
     values: LoginSchemaType,
   ) => {
-    const response = await loginAction(values)
+    const response = await loginAction(values, dict)
 
     if (response === true) {
       redirect('/admin')
@@ -51,12 +56,12 @@ export default function LoginForm({
           htmlFor="email"
           className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1"
         >
-          Email
+          {dict.login.email}
         </label>
         <input
           id="email"
           type="email"
-          placeholder="your@email.com"
+          placeholder={dict.login.emailPlaceholder}
           {...form.register('email')}
           className="w-full px-4 py-2 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
@@ -72,7 +77,7 @@ export default function LoginForm({
           htmlFor="password"
           className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1"
         >
-          Password
+          {dict.login.password}
         </label>
         <input
           id="password"
@@ -98,7 +103,7 @@ export default function LoginForm({
         isSubmitting={form.formState.isSubmitting}
         isSubmitSuccessful={form.formState.isSubmitSuccessful}
       >
-        Sign In
+        {dict.login.title}
       </FormButton>
     </form>
   )
