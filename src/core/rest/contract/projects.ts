@@ -39,10 +39,10 @@ export const projectsContract = c.router(
           }),
         }),
         404: z.object({
-          error: {
+          error: z.object({
             message: z.literal('Project not found'),
             code: 1,
-          },
+          }),
         }),
       },
       summary: 'Show a project',
@@ -104,10 +104,10 @@ export const projectsContract = c.router(
           }),
         }),
         404: z.object({
-          error: {
+          error: z.object({
             message: z.literal('Project not found'),
             code: 1,
-          },
+          }),
         }),
       },
       summary: 'Update a project',
@@ -123,10 +123,10 @@ export const projectsContract = c.router(
           }),
         }),
         404: z.object({
-          error: {
+          error: z.object({
             message: z.literal('Project not found'),
             code: 1,
-          },
+          }),
         }),
       },
       summary: 'Delete a project',
