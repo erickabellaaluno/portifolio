@@ -1,4 +1,4 @@
-import { commonResponses } from '@/core/rest/contract/common-responses'
+import { commonResponses } from '@/core/rest/contract/common'
 import { initContract } from '@ts-rest/core'
 import { z } from 'zod'
 

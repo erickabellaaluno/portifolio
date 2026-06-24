@@ -9,3 +9,9 @@ export const commonResponses: Record<number, AppRouteResponse> = {
     }),
   }),
 }
+
+export const zLanguages = () =>
+  z.object({
+    en: z.string(),
+    pt: z.string(),
+  })

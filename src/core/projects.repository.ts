@@ -3,7 +3,6 @@ import { projectsTable } from '@/db/schema/projects'
 import { eq } from 'drizzle-orm'
 
 export type ListProjectResultType = {
-  id: number
   date: string
   slug: string
   title: { en: string; pt: string }
@@ -14,7 +13,6 @@ export type ListProjectResultType = {
 export type ListProjectsResultType = ListProjectResultType[]
 
 export type FindProjectType = {
-  id: number
   date: string
   slug: string
   title: { en: string; pt: string }
@@ -32,6 +30,17 @@ export type SaveProjectType = {
   description: { en: string; pt: string }
   content: { en: string; pt: string }
   tags: string[]
+  githubUrl?: string
+  classroomUrl?: string
+}
+
+export type UpdateProjectType = {
+  date?: string
+  slug?: string
+  title?: { en: string; pt: string }
+  description?: { en: string; pt: string }
+  content?: { en: string; pt: string }
+  tags?: string[]
   githubUrl?: string
   classroomUrl?: string
 }
@@ -59,10 +68,10 @@ async function findBySlug(slug: string): Promise<FindProjectType | undefined> {
   return result
 }
 
-async function save(project: SaveProjectType) {
-  const result = await db.insert(projectsTable).values(project)
+async function save(project: SaveProjectType): Promise<FindProjectType> {
+  const result = await db.insert(projectsTable).values(project).returning()
 
-  return result
+  return result[0]
 }
 
 async function saveMany(projects: SaveProjectType[]) {
@@ -71,9 +80,28 @@ async function saveMany(projects: SaveProjectType[]) {
   return result
 }
 
+async function update(
+  slug: string,
+  project: UpdateProjectType,
+): Promise<FindProjectType> {
+  const result = await db
+    .update(projectsTable)
+    .set(project)
+    .where(eq(projectsTable.slug, slug))
+    .returning()
+
+  return result[0]
+}
+
+async function destroy(slug: string): Promise<void> {
+  await db.delete(projectsTable).where(eq(projectsTable.slug, slug)).returning()
+}
+
 export const projectsRepository = {
   findBySlug,
   list,
   save,
   saveMany,
+  update,
+  destroy,
 }
