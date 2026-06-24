@@ -30,5 +30,6 @@ export const authContract = c.router(
   },
   {
     commonResponses,
+    strictStatusCodes: true,
   },
 )

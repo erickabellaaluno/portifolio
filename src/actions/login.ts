@@ -26,7 +26,7 @@ export async function loginAction(
     return true
   }
 
-  if (response.body.code === 1) {
+  if (response.body.error.code === 1) {
     return dict.login.error.invalidCredentials
   }
 

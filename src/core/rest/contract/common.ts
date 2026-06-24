@@ -1,7 +1,6 @@
-import { AppRouteResponse } from '@ts-rest/core'
 import z from 'zod'
 
-export const commonResponses: Record<number, AppRouteResponse> = {
+export const commonResponses = {
   500: z.object({
     error: z.object({
       message: z.literal('Internal Server Error'),

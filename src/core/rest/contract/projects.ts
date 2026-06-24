@@ -58,8 +58,8 @@ export const projectsContract = c.router(
         content: zLanguages(),
         date: z.iso.date(),
         tags: z.array(z.string()),
-        githubUrl: z.url({ hostname: /^github\.com$/ }),
-        classroomUrl: z.url({ hostname: /^classroom.google\.com$/ }),
+        githubUrl: z.url({ hostname: /^github\.com$/ }).optional(),
+        classroomUrl: z.url({ hostname: /^classroom.google\.com$/ }).optional(),
       }),
       responses: {
         201: z.object({
@@ -135,5 +135,6 @@ export const projectsContract = c.router(
   },
   {
     commonResponses,
+    strictStatusCodes: true,
   },
 )
