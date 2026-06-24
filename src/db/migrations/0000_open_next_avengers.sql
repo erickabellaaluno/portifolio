@@ -7,7 +7,8 @@ CREATE TABLE "projects" (
 	"date" varchar(255) NOT NULL,
 	"tags" varchar(255)[] NOT NULL,
 	"githubUrl" varchar(255),
-	"classroomUrl" varchar(255)
+	"classroomUrl" varchar(255),
+	CONSTRAINT "projects_slug_unique" UNIQUE("slug")
 );
 --> statement-breakpoint
 CREATE TABLE "users" (
