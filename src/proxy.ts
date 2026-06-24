@@ -29,7 +29,7 @@ export async function proxy(request: NextRequest) {
     ? pathname.replace(/^\/[^/]+/, '')
     : pathname
 
-  const isAdminLogin = strippedPathname === '/admin/login'
+  const isAdminLogin = strippedPathname === '/login'
   const isAdminArea = strippedPathname.startsWith('/admin')
 
   if (isAdminArea) {
@@ -42,9 +42,7 @@ export async function proxy(request: NextRequest) {
     }
 
     if (!isAdminLogin && !isLoggedIn) {
-      return NextResponse.redirect(
-        new URL(`/${locale}/admin/login`, request.url),
-      )
+      return NextResponse.redirect(new URL(`/${locale}/login`, request.url))
     }
 
     if (!pathnameHasLocale) {
