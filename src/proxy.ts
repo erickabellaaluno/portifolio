@@ -1,4 +1,5 @@
 import { defaultLocale, locales, LocaleType } from '@/lib/dictionaries'
+import { decrypt } from '@/lib/session'
 import { NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
 
@@ -15,16 +16,47 @@ function getLocale(request: NextRequest): LocaleType {
   return defaultLocale
 }
 
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   )
 
+  const locale = getLocale(request)
+
+  const strippedPathname = pathnameHasLocale
+    ? pathname.replace(/^\/[^/]+/, '')
+    : pathname
+
+  const isAdminLogin = strippedPathname === '/admin/login'
+  const isAdminArea = strippedPathname.startsWith('/admin')
+
+  if (isAdminArea) {
+    const token = request.cookies.get('token')?.value
+    const session = await decrypt(token)
+    const isLoggedIn = session !== null
+
+    if (isAdminLogin && isLoggedIn) {
+      return NextResponse.redirect(new URL(`/${locale}/admin`, request.url))
+    }
+
+    if (!isAdminLogin && !isLoggedIn) {
+      return NextResponse.redirect(
+        new URL(`/${locale}/admin/login`, request.url),
+      )
+    }
+
+    if (!pathnameHasLocale) {
+      request.nextUrl.pathname = `/${locale}${pathname}`
+      return NextResponse.redirect(request.nextUrl)
+    }
+
+    return NextResponse.next()
+  }
+
   if (pathnameHasLocale) return NextResponse.next()
 
-  const locale = getLocale(request)
   request.nextUrl.pathname = `/${locale}${pathname}`
   return NextResponse.redirect(request.nextUrl)
 }
