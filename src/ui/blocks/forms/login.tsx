@@ -1,14 +1,13 @@
 'use client'
 
-import { apiClient } from '@/core/rest/client'
+import { loginAction } from '@/actions/login'
 import { contract } from '@/core/rest/contract'
 import { LocaleType } from '@/lib/dictionaries'
 import FormButton from '@/ui/components/button/form-button'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import z from 'zod'
+import { z } from 'zod'
 
 const loginSchema = contract.auth.login.body
 type LoginSchemaType = z.infer<typeof loginSchema>
@@ -31,24 +30,14 @@ export default function LoginForm({
   const onSubmit: SubmitHandler<LoginSchemaType> = async (
     values: LoginSchemaType,
   ) => {
-    const response = await apiClient.auth.login({ body: values })
+    const response = await loginAction(values)
 
-    if (response.status === 200) {
-      const token = response.body.token
-
-      const cookieStore = await cookies()
-      cookieStore.set('token', token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: 'lax',
-        path: '/',
-      })
-
+    if (response === true) {
       redirect('/admin')
     }
 
     form.setError('root', {
-      message: response.body.error.message,
+      message: response,
     })
   }
 
