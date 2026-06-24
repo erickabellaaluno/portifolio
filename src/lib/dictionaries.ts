@@ -33,6 +33,9 @@ export interface DictionaryInterface {
   locale: {
     switch: string
   }
+  errors: {
+    systemError: string
+  }
   login: {
     title: string
     description: string
@@ -41,7 +44,6 @@ export interface DictionaryInterface {
     password: string
     error: {
       invalidCredentials: string
-      systemError: string
     }
   }
   admin: {
@@ -53,6 +55,7 @@ export interface DictionaryInterface {
       create: string
       empty: string
       confirmDelete: string
+      notFound: string
     }
   }
 }
@@ -88,12 +91,14 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
     locale: {
       switch: 'Português',
     },
+    errors: {
+      systemError: 'A system error occurred. Please try again.',
+    },
     login: {
       title: 'Sign in',
       description: 'Welcome back to your portfolio',
       error: {
         invalidCredentials: 'Invalid email or password.',
-        systemError: 'A system error occurred. Please try again.',
       },
       email: 'Email',
       emailPlaceholder: 'your@email.com',
@@ -108,6 +113,7 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
         create: 'Create New Project',
         empty: 'No projects yet. Create one to get started!',
         confirmDelete: 'Are you sure you want to delete this project?',
+        notFound: 'Project not found',
       },
     },
   },
@@ -141,12 +147,14 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
     locale: {
       switch: 'English',
     },
+    errors: {
+      systemError: 'Ocorreu um erro no sistema. Tente novamente.',
+    },
     login: {
       title: 'Entrar',
       description: 'Bem vindo de volta ao seu portfólio',
       error: {
         invalidCredentials: 'Email ou senha inválidos.',
-        systemError: 'Ocorreu um erro no sistema. Tente novamente.',
       },
       email: 'Email',
       emailPlaceholder: 'seu@email.com',
@@ -161,6 +169,7 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
         create: 'Criar um Novo Projeto',
         empty: 'Sem projetos ainda. Crie um para iniciar!',
         confirmDelete: 'Você tem certeza que quer deletar esse projeto?',
+        notFound: 'Project not found',
       },
     },
   },

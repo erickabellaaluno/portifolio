@@ -30,5 +30,5 @@ export async function loginAction(
     return dict.login.error.invalidCredentials
   }
 
-  return dict.login.error.systemError
+  return dict.errors.systemError
 }
