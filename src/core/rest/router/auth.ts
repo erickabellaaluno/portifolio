@@ -30,7 +30,6 @@ async function handleLogin(
   }
 
   const token = await encrypt({
-    expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
     email: user.email,
   })
 
