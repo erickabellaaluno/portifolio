@@ -1,9 +1,16 @@
 import { contract } from '@/core/rest/contract'
 import { router } from '@/core/rest/router'
-import { createNextHandler } from '@ts-rest/serverless/next'
+import { createNextHandler, TsRestResponse } from '@ts-rest/serverless/next'
 
 export const handler = createNextHandler(contract, router, {
   handlerType: 'app-router',
+  errorHandler: (error: unknown) => {
+    console.error('Server Error', error)
+    return TsRestResponse.fromJson(
+      { error: { message: 'Internal Server Error', code: -1 } },
+      { status: 500 },
+    )
+  },
 })
 
 export const GET = handler

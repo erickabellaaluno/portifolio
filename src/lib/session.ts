@@ -1,7 +1,9 @@
+import getEnv from '@/lib/env'
 import { jwtVerify, SignJWT } from 'jose'
 import 'server-only'
 
-const secretKey = process.env.SESSION_SECRET
+const env = getEnv()
+const secretKey = env.jwt.secret
 const encodedKey = new TextEncoder().encode(secretKey)
 
 type SessionPayload = {
