@@ -1,5 +1,5 @@
-import LoginForm from '@/app/[lang]/login/form'
 import { LocaleType } from '@/i18n/dictionaries'
+import LoginForm from '@/ui/blocks/forms/login';
 
 export default async function LoginPage({
   params,

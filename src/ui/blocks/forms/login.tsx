@@ -1,28 +1,28 @@
 'use client'
 
-import { loginAction } from '@/actions/login'
-import { createLoginSchema, LoginSchemaType } from '@/actions/schemas'
+import { apiClient } from '@/core/rest/client'
+import { contract } from '@/core/rest/contract'
 import { LocaleType } from '@/i18n/dictionaries'
 import FormButton from '@/ui/components/button/form-button'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import z from 'zod'
+
+const loginSchema = contract.auth.login.body
+type LoginSchemaType = z.infer<typeof loginSchema>
 
 export default function LoginForm({
-  callbackUrl,
   email: initialEmail,
-  lang,
 }: {
   callbackUrl: string
   email: string
   lang: LocaleType
 }) {
-  const loginSchema = createLoginSchema(lang)
-
   const form = useForm<LoginSchemaType>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      callbackUrl: callbackUrl || '/',
       email: initialEmail ?? '',
       password: '',
     },
@@ -31,14 +31,24 @@ export default function LoginForm({
   const onSubmit: SubmitHandler<LoginSchemaType> = async (
     values: LoginSchemaType,
   ) => {
-    const response = await loginAction(values)
+    const response = await apiClient.auth.login({ body: values })
 
-    if (response.isOk()) {
+    if (response.status === 200) {
+      const token = response.body.token
+
+      const cookieStore = await cookies()
+      cookieStore.set('token', token, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'lax',
+        path: '/',
+      })
+
       redirect('/admin')
     }
 
     form.setError('root', {
-      message: response.error,
+      message: response.body.error.message,
     })
   }
 

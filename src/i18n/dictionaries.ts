@@ -33,6 +33,11 @@ export interface DictionaryInterface {
   locale: {
     switch: string
   }
+  login: {
+    invalidCredentials: string
+    systemError: string
+    validationError: string
+  }
 }
 
 const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
@@ -66,6 +71,11 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
     locale: {
       switch: 'Português',
     },
+    login: {
+      invalidCredentials: 'Invalid email or password.',
+      systemError: 'A system error occurred. Please try again.',
+      validationError: 'Validation error',
+    },
   },
   pt: {
     nav: {
@@ -96,6 +106,11 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
     },
     locale: {
       switch: 'English',
+    },
+    login: {
+      invalidCredentials: 'Email ou senha inválidos.',
+      systemError: 'Ocorreu um erro no sistema. Tente novamente.',
+      validationError: 'Erro de validação',
     },
   },
 } as const
