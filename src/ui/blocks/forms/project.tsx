@@ -77,10 +77,12 @@ export function UpdateProjectForm({
   defaultValues,
   dict,
   lang,
+  slug,
 }: {
   defaultValues: DefaultValues<UpdateProjectSchemaType>
   dict: DictionaryInterface
   lang: string
+  slug: string
 }) {
   const router = useRouter()
 
@@ -94,13 +96,16 @@ export function UpdateProjectForm({
   const onSubmit: SubmitHandler<UpdateProjectSchemaType> = async (
     values: UpdateProjectSchemaType,
   ) => {
-    const response = await apiClient.projects.store({ body: values })
+    const response = await apiClient.projects.update({
+      params: { slug },
+      body: values,
+    })
 
-    if (response.status !== 201) {
+    if (response.status !== 200) {
       alert(dict.errors.systemError)
     }
 
-    if (response.status === 201) {
+    if (response.status === 200) {
       router.push(`/${lang}/admin`)
       router.refresh()
     }

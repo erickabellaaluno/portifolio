@@ -43,6 +43,7 @@ export default async function EditProjectPage({
             githubUrl: project.githubUrl || undefined,
             classroomUrl: project.classroomUrl || undefined,
           }}
+          slug={slug}
           lang={lang}
           dict={dict}
         />
