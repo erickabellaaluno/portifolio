@@ -1,5 +1,5 @@
 import { projectsRepository } from '@/core/projects.repository'
-import { getDictionary, LocaleType } from '@/i18n/dictionaries'
+import { getDictionary, LocaleType } from '@/lib/dictionaries'
 import HeroSection from '@/ui/blocks/hero-section'
 import ProjectCard from '@/ui/components/project-card'
 

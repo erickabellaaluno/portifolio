@@ -1,4 +1,4 @@
-import { defaultLocale, locales, LocaleType } from '@/i18n/dictionaries'
+import { defaultLocale, locales, LocaleType } from '@/lib/dictionaries'
 import { NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
 

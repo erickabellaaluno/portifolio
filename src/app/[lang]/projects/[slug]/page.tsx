@@ -1,5 +1,5 @@
 import { projectsRepository } from '@/core/projects.repository'
-import { getDictionary, locales, LocaleType } from '@/i18n/dictionaries'
+import { getDictionary, locales, LocaleType } from '@/lib/dictionaries'
 import MarkdownRenderer from '@/ui/blocks/markdown-renderer'
 import LinkButton from '@/ui/components/button/link-button'
 import Divider from '@/ui/components/divider'

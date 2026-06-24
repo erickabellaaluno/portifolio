@@ -1,6 +1,6 @@
 'use client'
 
-import { DictionaryInterface, LocaleType } from '@/i18n/dictionaries'
+import { DictionaryInterface, LocaleType } from '@/lib/dictionaries'
 import LocaleSwitcher from '@/ui/components/locale-switcher'
 import ThemeToggle from '@/ui/components/theme-toggle'
 import { IconCode } from '@tabler/icons-react'

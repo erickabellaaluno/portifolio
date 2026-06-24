@@ -1,4 +1,4 @@
-import { DictionaryInterface, LocaleType } from '@/i18n/dictionaries'
+import { DictionaryInterface, LocaleType } from '@/lib/dictionaries'
 import UnipampaHorizontal from '@/images/unipampa/horizontal'
 import { IconBuilding, IconMapPin } from '@tabler/icons-react'
 

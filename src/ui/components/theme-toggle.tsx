@@ -1,4 +1,4 @@
-import { DictionaryInterface } from '@/i18n/dictionaries'
+import { DictionaryInterface } from '@/lib/dictionaries'
 import { IconMoon, IconSun } from '@tabler/icons-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'

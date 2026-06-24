@@ -1,5 +1,5 @@
 import '@/app/globals.css'
-import { getDictionary, locales, LocaleType } from '@/i18n/dictionaries'
+import { getDictionary, locales, LocaleType } from '@/lib/dictionaries'
 import Footer from '@/ui/blocks/footer'
 import Navbar from '@/ui/blocks/navbar'
 import ThemeProvider from '@/ui/providers/theme-provider'

@@ -1,4 +1,4 @@
-import { DictionaryInterface, locales, LocaleType } from '@/i18n/dictionaries'
+import { DictionaryInterface, locales, LocaleType } from '@/lib/dictionaries'
 import Link from 'next/link'
 
 interface LocaleSwitcherProps {

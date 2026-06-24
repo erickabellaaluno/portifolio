@@ -1,4 +1,4 @@
-import { DictionaryInterface } from '@/i18n/dictionaries'
+import { DictionaryInterface } from '@/lib/dictionaries'
 import { IconBrandGithub } from '@tabler/icons-react'
 import Link from 'next/link'
 

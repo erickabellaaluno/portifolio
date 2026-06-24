@@ -2,7 +2,7 @@
 
 import { apiClient } from '@/core/rest/client'
 import { contract } from '@/core/rest/contract'
-import { LocaleType } from '@/i18n/dictionaries'
+import { LocaleType } from '@/lib/dictionaries'
 import FormButton from '@/ui/components/button/form-button'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { cookies } from 'next/headers'

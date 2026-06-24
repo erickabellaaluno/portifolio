@@ -1,6 +1,6 @@
 import { ListProjectResultType } from '@/core/projects.repository'
-import { LocaleType } from '@/i18n/dictionaries'
-import { DictionaryInterface } from '@/i18n/dictionaries'
+import { LocaleType } from '@/lib/dictionaries'
+import { DictionaryInterface } from '@/lib/dictionaries'
 import { IconArrowRight, IconCalendar } from '@tabler/icons-react'
 import Link from 'next/link'
 
