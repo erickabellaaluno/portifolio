@@ -83,6 +83,12 @@ export const projectsContract = c.router(
               .nullable(),
           }),
         }),
+        401: z.object({
+          error: z.object({
+            message: z.literal('Unauthorized'),
+            code: z.literal(1),
+          }),
+        }),
       },
       summary: 'Store a new project',
       strictStatusCodes: true,
@@ -113,6 +119,12 @@ export const projectsContract = c.router(
             tags: z.array(z.string()),
           }),
         }),
+        401: z.object({
+          error: z.object({
+            message: z.literal('Unauthorized'),
+            code: z.literal(1),
+          }),
+        }),
         404: z.object({
           error: z.object({
             message: z.literal('Project not found'),
@@ -133,6 +145,12 @@ export const projectsContract = c.router(
         200: z.object({
           data: z.object({
             message: z.literal('Project deleted successfully'),
+          }),
+        }),
+        401: z.object({
+          error: z.object({
+            message: z.literal('Unauthorized'),
+            code: z.literal(1),
           }),
         }),
         404: z.object({
