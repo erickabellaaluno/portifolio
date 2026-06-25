@@ -1,6 +1,6 @@
 import { contract } from '@/core/rest/contract'
 import { usersRepository } from '@/core/users.repository'
-import { encrypt } from '@/lib/session'
+import { encrypt } from '@/lib/session/jwt'
 import { ServerInferRequest, ServerInferResponses } from '@ts-rest/core'
 import { tsr } from '@ts-rest/serverless/next'
 import bcrypt from 'bcryptjs'

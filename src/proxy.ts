@@ -1,5 +1,5 @@
 import { defaultLocale, locales, LocaleType } from '@/lib/dictionaries'
-import { decrypt } from '@/lib/session'
+import { decrypt } from '@/lib/session/jwt'
 import { NextResponse } from 'next/server'
 import { NextRequest } from 'next/server'
 

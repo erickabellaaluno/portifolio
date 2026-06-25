@@ -1,6 +1,6 @@
 'use client'
 
-import { clearSession } from '@/lib/session'
+import clearSession from '@/lib/session/clear-session'
 import { useRouter } from 'next/navigation'
 
 export interface LogoutButtonProps {

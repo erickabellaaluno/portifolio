@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const decryptMock = vi.fn()
 
-vi.mock('@/lib/session', () => ({
+vi.mock('@/lib/session/jwt', () => ({
   decrypt: decryptMock,
 }))
 

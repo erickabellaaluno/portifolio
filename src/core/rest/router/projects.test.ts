@@ -9,7 +9,7 @@ const updateMock = vi.fn()
 const destroyMock = vi.fn()
 const decryptMock = vi.fn()
 
-vi.mock('@/lib/session', () => ({
+vi.mock('@/lib/session/jwt', () => ({
   decrypt: decryptMock,
 }))
 

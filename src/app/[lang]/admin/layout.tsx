@@ -1,5 +1,5 @@
 import { LocaleType } from '@/lib/dictionaries'
-import { getSession } from '@/lib/session'
+import getSession from '@/lib/session/get-session'
 import { redirect } from 'next/navigation'
 
 export default async function AdminLayout({

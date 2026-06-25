@@ -1,6 +1,6 @@
 import { ListProjectResultType } from '@/core/projects.repository'
 import { DictionaryInterface } from '@/lib/dictionaries'
-import { SessionType } from '@/lib/session'
+import { SessionType } from '@/lib/session/types'
 import DeleteProjectButton from '@/ui/components/projects/admin-card/actions/delete-button'
 import EditProjectButton from '@/ui/components/projects/admin-card/actions/edit-button'
 import ViewProjectButton from '@/ui/components/projects/admin-card/actions/view-button'

@@ -1,6 +1,6 @@
 import { projectsRepository } from '@/core/projects.repository'
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
-import { getSession } from '@/lib/session'
+import getSession from '@/lib/session/get-session'
 import { UpdateProjectForm } from '@/ui/blocks/forms/project'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'

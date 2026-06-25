@@ -1,5 +1,5 @@
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
-import { getSession } from '@/lib/session'
+import getSession from '@/lib/session/get-session'
 import { NewProjectForm } from '@/ui/blocks/forms/project'
 import Link from 'next/link'
 

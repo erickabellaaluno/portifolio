@@ -10,7 +10,7 @@ vi.mock('@/core/users.repository', () => ({
   },
 }))
 
-vi.mock('@/lib/session', () => ({
+vi.mock('@/lib/session/jwt', () => ({
   encrypt: encryptMock,
 }))
 

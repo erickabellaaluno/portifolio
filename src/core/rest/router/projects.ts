@@ -1,8 +1,8 @@
 import { projectsRepository } from '@/core/projects.repository'
 import { contract } from '@/core/rest/contract'
 import { unauthorizedResponse } from '@/core/rest/router/common'
-import { decrypt } from '@/lib/session'
-import { SessionPayload } from '@/lib/session/payload'
+import { decrypt } from '@/lib/session/jwt'
+import { SessionPayload } from '@/lib/session/types'
 import { ServerInferRequest, ServerInferResponses } from '@ts-rest/core'
 import { tsr } from '@ts-rest/serverless/next'
 

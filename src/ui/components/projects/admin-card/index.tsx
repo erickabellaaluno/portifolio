@@ -1,6 +1,6 @@
 import { ListProjectResultType } from '@/core/projects.repository'
 import { DictionaryInterface } from '@/lib/dictionaries'
-import { SessionType } from '@/lib/session'
+import { SessionType } from '@/lib/session/types'
 import ProjectActions from '@/ui/components/projects/admin-card/actions'
 
 export default function AdminProjectCard({
