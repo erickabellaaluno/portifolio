@@ -66,6 +66,7 @@ export default defineConfig([
     settings: {
       react: { version: 'detect' },
       'import/parsers': {
+        // @ts-expect-error Idk
         [require.resolve('@typescript-eslint/parser')]: [
           '.ts',
           '.tsx',
