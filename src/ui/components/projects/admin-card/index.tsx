@@ -1,7 +1,8 @@
-import { ListProjectResultType } from '@/core/projects.repository'
+import { contract } from '@/core/rest/contract'
 import { DictionaryInterface } from '@/lib/dictionaries'
 import { SessionType } from '@/lib/session/types'
 import ProjectActions from '@/ui/components/projects/admin-card/actions'
+import { ClientInferResponseBody } from '@ts-rest/core'
 
 export default function AdminProjectCard({
   project,
@@ -9,7 +10,10 @@ export default function AdminProjectCard({
   lang,
   session,
 }: {
-  project: ListProjectResultType
+  project: ClientInferResponseBody<
+    typeof contract.projects.list,
+    200
+  >['data'][number]
   dict: DictionaryInterface
   lang: string
   session: SessionType

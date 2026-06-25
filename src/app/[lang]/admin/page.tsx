@@ -1,4 +1,4 @@
-import { projectsRepository } from '@/core/projects.repository'
+import { apiClient } from '@/core/rest/client'
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
 import getSession from '@/lib/session/get-session'
 import LogoutButton from '@/ui/components/button/logout-button'
@@ -12,7 +12,9 @@ export default async function AdminPage({
 }) {
   const { lang } = await params
   const dict = getDictionary(lang)
-  const projects = await projectsRepository.list()
+  const response = await apiClient.projects.list()
+  const projects = response.status === 200 ? response.body.data : []
+
   const session = await getSession({ redirect: true, lang })
 
   return (

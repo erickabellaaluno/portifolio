@@ -1,4 +1,4 @@
-import { projectsRepository } from '@/core/projects.repository'
+import { apiClient } from '@/core/rest/client'
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
 import HeroSection from '@/ui/blocks/hero-section'
 import ProjectCard from '@/ui/components/projects/card'
@@ -8,7 +8,8 @@ export default async function HomePage({
 }: {
   params: Promise<{ lang: LocaleType }>
 }) {
-  const projects = await projectsRepository.list()
+  const response = await apiClient.projects.list()
+  const projects = response.status === 200 ? response.body.data : []
   const { lang } = await params
   const dict = getDictionary(lang)
 

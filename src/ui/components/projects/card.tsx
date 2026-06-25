@@ -1,11 +1,15 @@
-import { ListProjectResultType } from '@/core/projects.repository'
+import { contract } from '@/core/rest/contract'
 import { LocaleType } from '@/lib/dictionaries'
 import { DictionaryInterface } from '@/lib/dictionaries'
 import { IconArrowRight, IconCalendar } from '@tabler/icons-react'
+import { ClientInferResponseBody } from '@ts-rest/core'
 import Link from 'next/link'
 
 interface ProjectCardProps {
-  project: ListProjectResultType
+  project: ClientInferResponseBody<
+    typeof contract.projects.list,
+    200
+  >['data'][number]
   lang: LocaleType
   dict: DictionaryInterface
 }
