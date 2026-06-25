@@ -27,10 +27,10 @@ export default async function EditProjectPage({
             href={`/${lang}/admin`}
             className="text-blue-600 hover:text-blue-700"
           >
-            ← Back to Admin
+            {dict.admin.return}
           </Link>
           <h1 className="text-4xl font-bold text-neutral-900 dark:text-neutral-100 mt-4">
-            Edit Project
+            {dict.admin.projects.edit}
           </h1>
         </div>
 

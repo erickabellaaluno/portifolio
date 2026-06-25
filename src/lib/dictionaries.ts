@@ -51,8 +51,35 @@ export interface DictionaryInterface {
     logout: string
     return: string
     projects: {
+      slug: {
+        label: string
+        placeholder: string
+      }
+      title: {
+        label: string
+      }
+      description: {
+        label: string
+      }
+      content: {
+        label: string
+      }
+      date: {
+        label: string
+      }
+      tags: {
+        label: string
+      }
+      githubUrl: {
+        label: string
+      }
+      classroomUrl: {
+        label: string
+      }
       new: string
       create: string
+      edit: string
+      update: string
       empty: string
       confirmDelete: string
       notFound: string
@@ -109,8 +136,35 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
       logout: 'Logout',
       return: '← Back to Admin',
       projects: {
+        slug: {
+          label: 'Slug',
+          placeholder: 'project-slug',
+        },
+        title: {
+          label: 'Title',
+        },
+        description: {
+          label: 'Description',
+        },
+        content: {
+          label: 'Content',
+        },
+        date: {
+          label: 'Date',
+        },
+        tags: {
+          label: 'Tags (comma separated)',
+        },
+        githubUrl: {
+          label: 'Github Url (optional)',
+        },
+        classroomUrl: {
+          label: 'Classroom Url (optional)',
+        },
         new: '+ New Project',
         create: 'Create New Project',
+        edit: 'Editar Projeto',
+        update: 'Update Project',
         empty: 'No projects yet. Create one to get started!',
         confirmDelete: 'Are you sure you want to delete this project?',
         notFound: 'Project not found',
@@ -165,8 +219,35 @@ const dictionaries: { en: DictionaryInterface; pt: DictionaryInterface } = {
       logout: 'Sair',
       return: '← Voltar ao Painel',
       projects: {
+        slug: {
+          label: 'Slug',
+          placeholder: 'slug-projeto',
+        },
+        title: {
+          label: 'Título',
+        },
+        description: {
+          label: 'Descrição',
+        },
+        content: {
+          label: 'Conteúdo',
+        },
+        date: {
+          label: 'Data',
+        },
+        tags: {
+          label: 'Tags (separados por vírgula)',
+        },
+        githubUrl: {
+          label: 'Url do Github (opcional)',
+        },
+        classroomUrl: {
+          label: 'Url do Classroom (opcional)',
+        },
         new: '+ Novo Projeto',
         create: 'Criar um Novo Projeto',
+        edit: 'Editar Projeto',
+        update: 'Atualizar Projeto',
         empty: 'Sem projetos ainda. Crie um para iniciar!',
         confirmDelete: 'Você tem certeza que quer deletar esse projeto?',
         notFound: 'Project not found',

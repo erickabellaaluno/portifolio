@@ -146,11 +146,11 @@ function FormComponent({
 
       <div>
         <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-          Slug
+          {dict.admin.projects.slug.label}
         </label>
         <input
           type="text"
-          placeholder="project-slug"
+          placeholder={dict.admin.projects.slug.placeholder}
           {...form.register('slug')}
           className="w-full px-4 py-2 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 disabled:opacity-50"
         />
@@ -164,7 +164,7 @@ function FormComponent({
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-            Title (PT)
+            {dict.admin.projects.title.label} (PT)
           </label>
           <input
             type="text"
@@ -180,7 +180,7 @@ function FormComponent({
 
         <div>
           <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-            Title (EN)
+            {dict.admin.projects.title.label} (EN)
           </label>
           <input
             type="text"
@@ -198,7 +198,7 @@ function FormComponent({
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-            Description (PT)
+            {dict.admin.projects.description.label} (PT)
           </label>
           <textarea
             {...form.register('description.pt')}
@@ -214,7 +214,7 @@ function FormComponent({
 
         <div>
           <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-            Description (EN)
+            {dict.admin.projects.description.label} (EN)
           </label>
           <textarea
             {...form.register('description.en')}
@@ -232,7 +232,7 @@ function FormComponent({
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-            Content (PT)
+            {dict.admin.projects.content.label} (PT)
           </label>
           <textarea
             {...form.register('content.pt')}
@@ -248,7 +248,7 @@ function FormComponent({
 
         <div>
           <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-            Content (EN)
+            {dict.admin.projects.content.label} (EN)
           </label>
           <textarea
             {...form.register('content.en')}
@@ -265,7 +265,7 @@ function FormComponent({
 
       <div>
         <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-          Date
+          {dict.admin.projects.date.label}
         </label>
         <input
           type="date"
@@ -281,7 +281,7 @@ function FormComponent({
 
       <div>
         <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-          Tags (comma separated)
+          {dict.admin.projects.tags.label}
         </label>
         <input
           type="text"
@@ -310,7 +310,7 @@ function FormComponent({
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-            GitHub URL (optional)
+            {dict.admin.projects.githubUrl.label}
           </label>
           <input
             type="url"
@@ -328,7 +328,7 @@ function FormComponent({
 
         <div>
           <label className="block text-sm font-medium text-neutral-900 dark:text-neutral-100 mb-1">
-            Classroom URL (optional)
+            {dict.admin.projects.classroomUrl.label}
           </label>
           <input
             type="url"
@@ -349,7 +349,7 @@ function FormComponent({
         isSubmitting={form.formState.isSubmitting}
         isSubmitSuccessful={form.formState.isSubmitSuccessful}
       >
-        {dict.admin.projects.new}
+        {dict.admin.projects.update}
       </FormButton>
     </form>
   )
