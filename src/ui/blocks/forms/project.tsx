@@ -293,6 +293,8 @@ function FormComponent({
                   .split(',')
                   .map((x) => x.trim())
                   .filter(Boolean)
+              } else if (v instanceof Array) {
+                return v.join(', ')
               }
             },
           })}
