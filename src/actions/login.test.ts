@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 const mockSet = vi.fn()
 const mockLogin = vi.fn()
 
-vi.mock('@/core/rest/client', () => ({
+vi.mock('@/rest/client', () => ({
   apiClient: {
     auth: {
       login: mockLogin,

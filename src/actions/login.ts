@@ -1,8 +1,8 @@
 'use server'
 
-import { apiClient } from '@/core/rest/client'
-import { contract } from '@/core/rest/contract'
 import { DictionaryInterface } from '@/lib/dictionaries'
+import { apiClient } from '@/rest/client'
+import { contract } from '@/rest/contract'
 import { cookies } from 'next/headers'
 import { z } from 'zod'
 

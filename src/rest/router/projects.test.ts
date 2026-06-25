@@ -1,4 +1,4 @@
-import { contract } from '@/core/rest/contract'
+import { contract } from '@/rest/contract'
 import { ServerInferRequest } from '@ts-rest/core'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 

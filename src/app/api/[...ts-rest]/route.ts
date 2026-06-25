@@ -1,5 +1,5 @@
-import { contract } from '@/core/rest/contract'
-import { router } from '@/core/rest/router'
+import { contract } from '@/rest/contract'
+import { router } from '@/rest/router'
 import { createNextHandler, TsRestResponse } from '@ts-rest/serverless/next'
 
 export const handler = createNextHandler(contract, router, {

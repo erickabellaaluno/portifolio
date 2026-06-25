@@ -1,5 +1,5 @@
-import { projectsRepository } from '@/core/projects.repository'
 import { getDictionary, locales, LocaleType } from '@/lib/dictionaries'
+import { apiClient } from '@/rest/client'
 import MarkdownRenderer from '@/ui/blocks/markdown-renderer'
 import LinkButton from '@/ui/components/button/link-button'
 import Divider from '@/ui/components/divider'
@@ -15,7 +15,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const projects = await projectsRepository.list()
+  const response = await apiClient.projects.list()
+  const projects = response.status === 200 ? response.body.data : []
 
   return locales.flatMap((lang) =>
     projects.map((t) => ({ lang, slug: t.slug })),
@@ -29,7 +30,8 @@ export default async function ProjectPage({
 }) {
   const { lang, slug } = await params
   const dict = getDictionary(lang)
-  const project = await projectsRepository.findBySlug(slug)
+  const response = await apiClient.projects.show({ params: { slug } })
+  const project = response.status === 200 ? response.body.data : null
 
   if (!project) notFound()
 

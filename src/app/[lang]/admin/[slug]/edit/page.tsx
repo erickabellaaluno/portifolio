@@ -1,6 +1,6 @@
-import { projectsRepository } from '@/core/projects.repository'
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
 import getSession from '@/lib/session/get-session'
+import { apiClient } from '@/rest/client'
 import { UpdateProjectForm } from '@/ui/blocks/forms/project'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -11,7 +11,8 @@ export default async function EditProjectPage({
   params: Promise<{ lang: LocaleType; slug: string }>
 }) {
   const { lang, slug } = await params
-  const project = await projectsRepository.findBySlug(slug)
+  const response = await apiClient.projects.show({ params: { slug } })
+  const project = response.status === 200 ? response.body.data : null
   const dict = getDictionary(lang)
   const session = await getSession({ redirect: true, lang })
 

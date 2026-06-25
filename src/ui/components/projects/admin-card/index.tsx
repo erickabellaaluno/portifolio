@@ -1,6 +1,6 @@
-import { contract } from '@/core/rest/contract'
 import { DictionaryInterface } from '@/lib/dictionaries'
 import { SessionType } from '@/lib/session/types'
+import { contract } from '@/rest/contract'
 import ProjectActions from '@/ui/components/projects/admin-card/actions'
 import { ClientInferResponseBody } from '@ts-rest/core'
 

@@ -1,5 +1,5 @@
-import { apiClient } from '@/core/rest/client'
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
+import { apiClient } from '@/rest/client'
 import HeroSection from '@/ui/blocks/hero-section'
 import ProjectCard from '@/ui/components/projects/card'
 

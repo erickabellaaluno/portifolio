@@ -1,8 +1,4 @@
-import {
-  commonResponses,
-  zBearer,
-  zLanguages,
-} from '@/core/rest/contract/common'
+import { commonResponses, zBearer, zLanguages } from '@/rest/contract/common'
 import { initContract } from '@ts-rest/core'
 import { z } from 'zod'
 
@@ -35,11 +31,16 @@ export const projectsContract = c.router(
       responses: {
         200: z.object({
           data: z.object({
-            date: z.string(),
             slug: z.string(),
             title: zLanguages(),
             description: zLanguages(),
+            content: zLanguages(),
+            date: z.iso.date(),
             tags: z.array(z.string()),
+            githubUrl: z.url({ hostname: /^github\.com$/ }).nullable(),
+            classroomUrl: z
+              .url({ hostname: /^classroom.google\.com$/ })
+              .nullable(),
           }),
         }),
         404: z.object({

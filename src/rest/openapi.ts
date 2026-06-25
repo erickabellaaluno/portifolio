@@ -1,4 +1,4 @@
-import { contract } from '@/core/rest/contract'
+import { contract } from '@/rest/contract'
 import { generateOpenApi, SchemaTransformerSync } from '@ts-rest/open-api'
 import { z } from 'zod'
 

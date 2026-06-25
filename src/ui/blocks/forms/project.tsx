@@ -1,10 +1,10 @@
 'use client'
 
-import { apiClient } from '@/core/rest/client'
-import { contract } from '@/core/rest/contract'
 import { DictionaryInterface } from '@/lib/dictionaries'
 import bearer from '@/lib/session/bearer'
 import { SessionType } from '@/lib/session/types'
+import { apiClient } from '@/rest/client'
+import { contract } from '@/rest/contract'
 import FormButton from '@/ui/components/button/form-button'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'

@@ -1,4 +1,4 @@
-import { openApiDocument } from '@/core/rest/openapi'
+import { openApiDocument } from '@/rest/openapi'
 import { NextResponse } from 'next/server'
 
 export async function GET() {

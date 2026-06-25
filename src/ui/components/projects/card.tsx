@@ -1,6 +1,6 @@
-import { contract } from '@/core/rest/contract'
 import { LocaleType } from '@/lib/dictionaries'
 import { DictionaryInterface } from '@/lib/dictionaries'
+import { contract } from '@/rest/contract'
 import { IconArrowRight, IconCalendar } from '@tabler/icons-react'
 import { ClientInferResponseBody } from '@ts-rest/core'
 import Link from 'next/link'

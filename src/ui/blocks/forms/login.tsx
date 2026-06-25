@@ -1,8 +1,8 @@
 'use client'
 
 import { loginAction } from '@/actions/login'
-import { contract } from '@/core/rest/contract'
 import { DictionaryInterface, LocaleType } from '@/lib/dictionaries'
+import { contract } from '@/rest/contract'
 import FormButton from '@/ui/components/button/form-button'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { redirect } from 'next/navigation'

@@ -1,11 +1,12 @@
 'use client'
 
-import { ListProjectResultType } from '@/core/projects.repository'
-import { apiClient } from '@/core/rest/client'
 import { DictionaryInterface } from '@/lib/dictionaries'
 import bearer from '@/lib/session/bearer'
 import { SessionType } from '@/lib/session/types'
+import { apiClient } from '@/rest/client'
+import { contract } from '@/rest/contract'
 import { IconLoader2, IconTrash } from '@tabler/icons-react'
+import { ClientInferResponseBody } from '@ts-rest/core'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
@@ -14,7 +15,10 @@ export default function DeleteProjectButton({
   dict,
   session,
 }: {
-  project: ListProjectResultType
+  project: ClientInferResponseBody<
+    typeof contract.projects.list,
+    200
+  >['data'][number]
   dict: DictionaryInterface
   session: SessionType
 }) {

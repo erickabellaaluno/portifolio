@@ -1,6 +1,6 @@
-import { apiClient } from '@/core/rest/client'
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
 import getSession from '@/lib/session/get-session'
+import { apiClient } from '@/rest/client'
 import LogoutButton from '@/ui/components/button/logout-button'
 import AdminProjectCard from '@/ui/components/projects/admin-card'
 import Link from 'next/link'

@@ -1,12 +1,16 @@
-import { ListProjectResultType } from '@/core/projects.repository'
+import { contract } from '@/rest/contract'
 import { IconEye } from '@tabler/icons-react'
+import { ClientInferResponseBody } from '@ts-rest/core'
 import Link from 'next/link'
 
 export default function ViewProjectButton({
   project,
   lang,
 }: {
-  project: ListProjectResultType
+  project: ClientInferResponseBody<
+    typeof contract.projects.list,
+    200
+  >['data'][number]
   lang: string
 }) {
   return (
