@@ -7,6 +7,11 @@ const findBySlugMock = vi.fn()
 const saveMock = vi.fn()
 const updateMock = vi.fn()
 const destroyMock = vi.fn()
+const decryptMock = vi.fn()
+
+vi.mock('@/lib/session', () => ({
+  decrypt: decryptMock,
+}))
 
 vi.mock('@/core/projects.repository', () => ({
   projectsRepository: {
@@ -21,6 +26,7 @@ vi.mock('@/core/projects.repository', () => ({
 describe('projects router handlers', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    decryptMock.mockResolvedValue(null)
   })
 
   it('handleList returns project list', async () => {
@@ -53,9 +59,11 @@ describe('projects router handlers', () => {
   })
 
   it('handleStore returns created project', async () => {
+    decryptMock.mockResolvedValueOnce({ email: 'test@example.com' })
     saveMock.mockResolvedValueOnce({ slug: 'created' })
     const { handleStore } = await import('./projects')
     const response = await handleStore({
+      headers: { authorization: 'Bearer valid-token' },
       body: { slug: 'created' },
     } as ServerInferRequest<typeof contract.projects.store>)
 
@@ -66,9 +74,11 @@ describe('projects router handlers', () => {
   })
 
   it('handleUpdate returns 404 when project is missing', async () => {
+    decryptMock.mockResolvedValueOnce({ email: 'test@example.com' })
     findBySlugMock.mockResolvedValueOnce(undefined)
     const { handleUpdate } = await import('./projects')
     const response = await handleUpdate({
+      headers: { authorization: 'Bearer valid-token' },
       params: { slug: 'missing' },
       body: {},
     })
@@ -80,10 +90,12 @@ describe('projects router handlers', () => {
   })
 
   it('handleUpdate returns updated project when found', async () => {
+    decryptMock.mockResolvedValueOnce({ email: 'test@example.com' })
     findBySlugMock.mockResolvedValueOnce({ slug: 'ok' })
     updateMock.mockResolvedValueOnce({ slug: 'updated' })
     const { handleUpdate } = await import('./projects')
     const response = await handleUpdate({
+      headers: { authorization: 'Bearer valid-token' },
       params: { slug: 'ok' },
       body: { title: { en: 'Updated', pt: 'Atualizado' } },
     })
@@ -95,9 +107,13 @@ describe('projects router handlers', () => {
   })
 
   it('handleDestroy returns 404 when project is missing', async () => {
+    decryptMock.mockResolvedValueOnce({ email: 'test@example.com' })
     findBySlugMock.mockResolvedValueOnce(undefined)
     const { handleDestroy } = await import('./projects')
-    const response = await handleDestroy({ params: { slug: 'missing' } })
+    const response = await handleDestroy({
+      headers: { authorization: 'Bearer valid-token' },
+      params: { slug: 'missing' },
+    })
 
     expect(response).toEqual({
       body: { error: { message: 'Project not found', code: 1 } },
@@ -106,14 +122,31 @@ describe('projects router handlers', () => {
   })
 
   it('handleDestroy returns success when project is deleted', async () => {
+    decryptMock.mockResolvedValueOnce({ email: 'test@example.com' })
     findBySlugMock.mockResolvedValueOnce({ slug: 'ok' })
     destroyMock.mockResolvedValueOnce(undefined)
     const { handleDestroy } = await import('./projects')
-    const response = await handleDestroy({ params: { slug: 'ok' } })
+    const response = await handleDestroy({
+      headers: { authorization: 'Bearer valid-token' },
+      params: { slug: 'ok' },
+    })
 
     expect(response).toEqual({
       body: { data: { message: 'Project deleted successfully' } },
       status: 200,
+    })
+  })
+
+  it('handleStore returns 401 when token is invalid', async () => {
+    const { handleStore } = await import('./projects')
+    const response = await handleStore({
+      headers: { authorization: 'Bearer invalid-token' },
+      body: { slug: 'created' },
+    } as ServerInferRequest<typeof contract.projects.store>)
+
+    expect(response).toEqual({
+      body: { error: { message: 'Unauthorized', code: 1 } },
+      status: 401,
     })
   })
 })

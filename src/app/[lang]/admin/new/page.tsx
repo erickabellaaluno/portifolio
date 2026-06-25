@@ -1,14 +1,16 @@
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
+import { getSession } from '@/lib/session'
 import { NewProjectForm } from '@/ui/blocks/forms/project'
 import Link from 'next/link'
 
 export default async function NewProjectPage({
   params,
 }: {
-  params: Promise<{ lang: string }>
+  params: Promise<{ lang: LocaleType }>
 }) {
   const { lang } = await params
-  const dict = getDictionary(lang as LocaleType)
+  const dict = getDictionary(lang)
+  const session = await getSession({ redirect: true, lang })
 
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 p-8">
@@ -25,7 +27,7 @@ export default async function NewProjectPage({
           </h1>
         </div>
 
-        <NewProjectForm lang={lang} dict={dict} />
+        <NewProjectForm session={session} lang={lang} dict={dict} />
       </div>
     </div>
   )

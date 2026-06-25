@@ -3,6 +3,8 @@
 import { ListProjectResultType } from '@/core/projects.repository'
 import { apiClient } from '@/core/rest/client'
 import { DictionaryInterface } from '@/lib/dictionaries'
+import { SessionType } from '@/lib/session'
+import bearer from '@/lib/session/bearer'
 import { IconLoader2, IconTrash } from '@tabler/icons-react'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -10,9 +12,11 @@ import { useState } from 'react'
 export default function DeleteProjectButton({
   project,
   dict,
+  session,
 }: {
   project: ListProjectResultType
   dict: DictionaryInterface
+  session: SessionType
 }) {
   const router = useRouter()
   const [isDeleting, setIsDeleting] = useState(false)
@@ -22,6 +26,7 @@ export default function DeleteProjectButton({
 
     setIsDeleting(true)
     const result = await apiClient.projects.destroy({
+      headers: { authorization: bearer(session.token) },
       params: { slug: project.slug },
     })
 

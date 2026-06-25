@@ -1,5 +1,6 @@
 import { projectsRepository } from '@/core/projects.repository'
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
+import { getSession } from '@/lib/session'
 import LogoutButton from '@/ui/components/button/logout-button'
 import AdminProjectCard from '@/ui/components/projects/admin-card'
 import Link from 'next/link'
@@ -7,11 +8,12 @@ import Link from 'next/link'
 export default async function AdminPage({
   params,
 }: {
-  params: Promise<{ lang: string }>
+  params: Promise<{ lang: LocaleType }>
 }) {
   const { lang } = await params
-  const dict = getDictionary(lang as LocaleType)
+  const dict = getDictionary(lang)
   const projects = await projectsRepository.list()
+  const session = await getSession({ redirect: true, lang })
 
   return (
     <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 p-8">
@@ -44,6 +46,7 @@ export default async function AdminPage({
                 project={project}
                 dict={dict}
                 lang={lang}
+                session={session}
               />
             ))
           )}

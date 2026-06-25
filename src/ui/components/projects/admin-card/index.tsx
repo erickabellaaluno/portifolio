@@ -1,15 +1,18 @@
 import { ListProjectResultType } from '@/core/projects.repository'
 import { DictionaryInterface } from '@/lib/dictionaries'
+import { SessionType } from '@/lib/session'
 import ProjectActions from '@/ui/components/projects/admin-card/actions'
 
 export default function AdminProjectCard({
   project,
   dict,
   lang,
+  session,
 }: {
   project: ListProjectResultType
   dict: DictionaryInterface
   lang: string
+  session: SessionType
 }) {
   return (
     <div className="flex items-center justify-between p-4 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900">
@@ -32,7 +35,12 @@ export default function AdminProjectCard({
         </div>
       </div>
 
-      <ProjectActions project={project} dict={dict} lang={lang} />
+      <ProjectActions
+        session={session}
+        project={project}
+        dict={dict}
+        lang={lang}
+      />
     </div>
   )
 }

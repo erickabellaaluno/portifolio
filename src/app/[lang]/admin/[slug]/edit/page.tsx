@@ -1,5 +1,6 @@
 import { projectsRepository } from '@/core/projects.repository'
 import { getDictionary, LocaleType } from '@/lib/dictionaries'
+import { getSession } from '@/lib/session'
 import { UpdateProjectForm } from '@/ui/blocks/forms/project'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -7,11 +8,12 @@ import { notFound } from 'next/navigation'
 export default async function EditProjectPage({
   params,
 }: {
-  params: Promise<{ lang: string; slug: string }>
+  params: Promise<{ lang: LocaleType; slug: string }>
 }) {
   const { lang, slug } = await params
   const project = await projectsRepository.findBySlug(slug)
-  const dict = getDictionary(lang as LocaleType)
+  const dict = getDictionary(lang)
+  const session = await getSession({ redirect: true, lang })
 
   if (!project) {
     notFound()
@@ -43,6 +45,7 @@ export default async function EditProjectPage({
             githubUrl: project.githubUrl || undefined,
             classroomUrl: project.classroomUrl || undefined,
           }}
+          session={session}
           slug={slug}
           lang={lang}
           dict={dict}

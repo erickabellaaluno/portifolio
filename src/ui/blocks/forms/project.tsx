@@ -3,6 +3,8 @@
 import { apiClient } from '@/core/rest/client'
 import { contract } from '@/core/rest/contract'
 import { DictionaryInterface } from '@/lib/dictionaries'
+import { SessionType } from '@/lib/session'
+import bearer from '@/lib/session/bearer'
 import FormButton from '@/ui/components/button/form-button'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
@@ -22,9 +24,11 @@ const updateProjectSchema = contract.projects.store.body
 type UpdateProjectSchemaType = z.infer<typeof updateProjectSchema>
 
 export function NewProjectForm({
+  session,
   dict,
   lang,
 }: {
+  session: SessionType
   dict: DictionaryInterface
   lang: string
 }) {
@@ -58,7 +62,10 @@ export function NewProjectForm({
   const onSubmit: SubmitHandler<NewProjectSchemaType> = async (
     values: NewProjectSchemaType,
   ) => {
-    const response = await apiClient.projects.store({ body: values })
+    const response = await apiClient.projects.store({
+      headers: { authorization: bearer(session.token) },
+      body: values,
+    })
 
     if (response.status !== 201) {
       alert(dict.errors.systemError)
@@ -75,11 +82,13 @@ export function NewProjectForm({
 
 export function UpdateProjectForm({
   defaultValues,
+  session,
   dict,
   lang,
   slug,
 }: {
   defaultValues: DefaultValues<UpdateProjectSchemaType>
+  session: SessionType
   dict: DictionaryInterface
   lang: string
   slug: string
@@ -97,6 +106,7 @@ export function UpdateProjectForm({
     values: UpdateProjectSchemaType,
   ) => {
     const response = await apiClient.projects.update({
+      headers: { authorization: bearer(session.token) },
       params: { slug },
       body: values,
     })

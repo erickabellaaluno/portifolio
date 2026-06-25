@@ -8,10 +8,10 @@ export default async function LoginPage({
   params: Promise<{ lang: string }>
   searchParams: Promise<{ email?: string; callbackUrl?: string }>
 }) {
-  const { lang } = await params
+  const { lang } = (await params) as { lang: LocaleType }
   const { email = '' } = await searchParams
 
-  const dict = getDictionary(lang as LocaleType)
+  const dict = getDictionary(lang)
 
   return (
     <main className="flex items-center justify-center min-h-screen px-4">
@@ -25,7 +25,7 @@ export default async function LoginPage({
           </p>
         </div>
 
-        <LoginForm email={email} lang={lang as LocaleType} dict={dict} />
+        <LoginForm email={email} lang={lang} dict={dict} />
       </div>
     </main>
   )

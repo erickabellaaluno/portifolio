@@ -1,3 +1,4 @@
+import { LocaleType } from '@/lib/dictionaries'
 import { getSession } from '@/lib/session'
 import { redirect } from 'next/navigation'
 
@@ -8,7 +9,9 @@ export default async function AdminLayout({
   children: React.ReactNode
   params: Promise<{ lang: string }>
 }) {
-  const session = await getSession()
+  const { lang } = (await params) as { lang: LocaleType }
+
+  const session = await getSession({ redirect: true, lang })
   if (!session) {
     const { lang } = await params
     redirect(`/${lang}/login`)

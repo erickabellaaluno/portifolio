@@ -50,7 +50,8 @@ describe('session helpers', () => {
 
     const session = await getSession()
 
-    expect(session).toEqual({ email: 'test@example.com' })
+    expect(session).toHaveProperty('payload')
+    expect(session?.payload).toEqual({ email: 'test@example.com' })
     expect(cookiesMock).toHaveBeenCalledOnce()
     expect(getMock).toHaveBeenCalledWith('token')
   })
