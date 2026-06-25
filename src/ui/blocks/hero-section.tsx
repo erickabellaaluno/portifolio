@@ -1,5 +1,5 @@
 import { DictionaryInterface, LocaleType } from '@/lib/dictionaries'
-import { UnipampaHorizontal } from '@/ui/components/images/unipampa'
+import { UnipampaHorizontal } from '@/ui/components/assets/unipampa'
 import { IconBuilding, IconMapPin } from '@tabler/icons-react'
 
 interface HeroSectionProps {
