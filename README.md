@@ -21,28 +21,11 @@ Construído com Next.js, Tailwind CSS, PostgreSQL e Drizzle ORM. O site exibe pr
 
 ## 🔧 Como rodar
 
-1. Instale dependências:
-
 ```bash
 npm install
-```
-
-2. Crie o banco de dados e inicialize o container:
-
-```bash
 docker compose up -d
-```
-
-3. Gere arquivos do Drizzle e rode o seed:
-
-```bash
 npx drizzle-kit generate
 npm run seed
-```
-
-4. Inicie o app em desenvolvimento:
-
-```bash
 npm run dev
 ```
 
@@ -52,8 +35,14 @@ Abra `http://localhost:3000` e o app redirecionará para `/pt` ou `/en` conforme
 
 ## 🔌 API
 
-- `GET /api/projects` — retorna a lista de projetos.
-- `GET /api/projects/:slug` — retorna um projeto específico ou `404`.
+A documentação completa está disponível em: `http://localhost:3000/api/docs`
+
+- `POST /api/auth/login` — Autentica o usuário e retorna um JWT.
+- `GET /api/projects` — Lista todos os projetos.
+- `GET /api/projects/:slug` — Retorna um projeto específico.
+- `POST /api/projects` — Cria um novo projeto (requer JWT).
+- `PUT /api/projects/:slug` — Atualiza um projeto (requer JWT).
+- `DELETE /api/projects/:slug` — Remove um projeto (requer JWT).
 
 ---
 

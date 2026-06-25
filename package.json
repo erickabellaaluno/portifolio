@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
+    "@openapi-contrib/json-schema-to-openapi-schema": "^4.3.4",
     "@tabler/icons-react": "^3.44.0",
     "@tailwindcss/typography": "^0.5.20",
     "@ts-rest/core": "^3.53.0-rc.1",

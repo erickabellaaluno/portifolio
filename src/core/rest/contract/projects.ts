@@ -1,4 +1,8 @@
-import { commonResponses, zLanguages } from '@/core/rest/contract/common'
+import {
+  commonResponses,
+  zBearer,
+  zLanguages,
+} from '@/core/rest/contract/common'
 import { initContract } from '@ts-rest/core'
 import { z } from 'zod'
 
@@ -51,6 +55,9 @@ export const projectsContract = c.router(
     store: {
       method: 'POST',
       path: '/api/projects',
+      headers: z.object({
+        authorization: zBearer(),
+      }),
       body: z.object({
         slug: z.string(),
         title: zLanguages(),
@@ -83,6 +90,9 @@ export const projectsContract = c.router(
     update: {
       method: 'PUT',
       path: '/api/projects/:slug',
+      headers: z.object({
+        authorization: zBearer(),
+      }),
       body: z.object({
         slug: z.string().optional(),
         title: zLanguages().optional(),
@@ -116,6 +126,9 @@ export const projectsContract = c.router(
     destroy: {
       method: 'DELETE',
       path: '/api/projects/:slug',
+      headers: z.object({
+        authorization: zBearer(),
+      }),
       responses: {
         200: z.object({
           data: z.object({

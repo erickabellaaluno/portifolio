@@ -14,3 +14,10 @@ export const zLanguages = () =>
     en: z.string(),
     pt: z.string(),
   })
+
+export const zBearer = () =>
+  z
+    .string()
+    .startsWith('Bearer ')
+    .transform((val) => val.slice(7))
+    .pipe(z.jwt())
