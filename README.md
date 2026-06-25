@@ -24,7 +24,7 @@ Construído com Next.js, Tailwind CSS, PostgreSQL e Drizzle ORM. O site exibe pr
 ```bash
 npm install
 docker compose up -d
-npx drizzle-kit generate
+npx drizzle-kit migrate
 npm run seed
 npm run dev
 ```
