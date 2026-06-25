@@ -1,6 +1,6 @@
 'use client'
 
-import clearSession from '@/lib/session/clear-session'
+import { logoutAction } from '@/actions/logout'
 import { useRouter } from 'next/navigation'
 
 export interface LogoutButtonProps {
@@ -10,12 +10,14 @@ export interface LogoutButtonProps {
 export default function LogoutButton({ children }: LogoutButtonProps) {
   const router = useRouter()
 
+  async function handleLogout() {
+    await logoutAction()
+    router.refresh()
+  }
+
   return (
     <button
-      onClick={async () => {
-        await clearSession()
-        router.refresh()
-      }}
+      onClick={handleLogout}
       className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors hover:cursor-pointer"
     >
       {children}
