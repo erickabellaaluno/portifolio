@@ -5,6 +5,7 @@ export type EnvType = {
   jwt: {
     secret: string
   }
+  baseUrl: string
 }
 
 export default function getEnv(): EnvType {
@@ -15,5 +16,6 @@ export default function getEnv(): EnvType {
     jwt: {
       secret: process.env.JWT_SECRET!,
     },
+    baseUrl: process.env.NEXT_PUBLIC_BASE_URL!,
   }
 }
