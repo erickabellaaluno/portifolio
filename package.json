@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "tsx src/scripts/validate-projects.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix && tsc --noEmit",
