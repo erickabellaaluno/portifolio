@@ -12,3 +12,7 @@ Ao final, o aluno deverá apresentar uma avaliação crítica dos modelos utiliz
 A entrega deverá conter os prompts utilizados, os resultados gerados por cada modelo e a análise comparativa final.
 
 Após completar a entrega, responda o Quiz de Avaliação da Experiência desta atividade (a segunda atividade para este mesmo dia/horário).
+
+## Resolução
+
+<iframe src="/assets/projects/11713fe0-d27f-4e44-a80c-1d4f8e5e87aa.pdf" width="100%" height="800"> </iframe>

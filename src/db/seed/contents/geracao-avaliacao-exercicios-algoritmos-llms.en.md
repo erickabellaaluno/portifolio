@@ -12,3 +12,7 @@ At the end, the student must present a critical evaluation of the models used, h
 The submission must include the prompts used, the outputs produced by each model, and the final comparative analysis.
 
 After completing the submission, answer the Experience Evaluation Quiz for this activity (the second activity scheduled for the same day/time).
+
+## Resolution
+
+<iframe src="/assets/projects/11713fe0-d27f-4e44-a80c-1d4f8e5e87aa.pdf" width="100%" height="800"> </iframe>
