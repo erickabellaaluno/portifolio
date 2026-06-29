@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "drizzle-kit migrate",
+    "prebuild": "npm run db:migrate",
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix && tsc --noEmit",
@@ -12,7 +12,8 @@
     "test:integration": "vitest -c vitest.integration.config.mts",
     "test:e2e": "vitest -c vitest.e2e.config.mts",
     "playground": "tsx src/playground",
-    "seed": "tsx src/db/seed"
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "tsx src/db/seed"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
