@@ -73,6 +73,10 @@ export default async function ProjectPage({
         <Tags tags={project.tags} />
 
         <MarkdownRenderer content={project.description[lang]} />
+
+        <Divider />
+
+        <MarkdownRenderer content={project.content[lang]} />
       </div>
 
       <Divider />

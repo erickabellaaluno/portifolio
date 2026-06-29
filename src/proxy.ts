@@ -60,5 +60,6 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/((?!api|_next/static|_next/image|manifest\\.json|.*\\.png$).*)',
+  matcher:
+    '/((?!api|assets|_next/static|_next/image|manifest\\.json|.*\\.png$).*)',
 }
