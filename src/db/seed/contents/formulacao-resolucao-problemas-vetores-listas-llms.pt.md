@@ -45,3 +45,8 @@ Observações Importantes
 O uso de LLMs é permitido apenas na etapa de criação dos problemas.
 A resolução deve refletir entendimento próprio, sem dependência de ferramentas automáticas.
 Problemas genéricos ou desconectados da área do curso poderão ter pontuação reduzida.
+
+## Resoluções
+
+![](/assets/projects/7f8bf8fe-9b15-4a96-b981-a1c767ec53c5.jpg)
+![](/assets/projects/d9b9840c-3caa-4ae3-9d50-6b100aae81d7.jpg)

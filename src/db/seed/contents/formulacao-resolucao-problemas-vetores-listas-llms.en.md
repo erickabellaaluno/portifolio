@@ -42,3 +42,8 @@ Important notes
 Use of LLMs is allowed only in the problem-creation stage.
 The solutions must reflect the student's own understanding, without dependence on automated tools.
 Generic or disconnected problems relative to the student's area may receive reduced scores.
+
+## Resoluções
+
+![](/assets/projects/7f8bf8fe-9b15-4a96-b981-a1c767ec53c5.jpg)
+![](/assets/projects/d9b9840c-3caa-4ae3-9d50-6b100aae81d7.jpg)
