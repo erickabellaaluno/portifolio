@@ -8,4 +8,12 @@ https://docs.google.com/document/d/1o63xlRkI2A10GSfN0XG_OgASFRehFWQcxsr8oPV4ABg/
 
 The solution must be implemented in Python using vectors/lists of variable size, defined at each run. Results should be presented in table form and also through visual graphs.
 
-In addition to the implementation, each student must compare the solution of the same problem using the same prompt across at least three different LLMs, such as ChatGPT, Claude, Gemini, Copilot or DeepSeek. The comparison should consider whether the code runs correctly, whether the calculations are appropriate, whether the graphs are coherent, whether lists/vectors are used correctly, and whether the solution is clear and well organized.
+In addition to the implementation, each student must compare the solution of the same problem using the same prompt across at least three different LLMs, such as ChatGPT, Claude, Gemini, Copilot or DeepSeek. The comparison should consider whether the code runs correctly, whether the calculations are appropriate, whether the graphs are coherent, whether lists/vectors are used correctly, and whether the solution is clear and well organized.## Solutions
+
+### Stability and Cost Analysis of Water Supply Systems
+
+View the GitHub repository [here](https://github.com/erickabellaaluno/AnaliseEstabilidadeCustoSistemaAbastecimentoAgua).
+
+### Stress Analysis of Planar Trusses
+
+View the GitHub repository [here](https://github.com/erickabellaaluno/AnaliseTensoesTrelicasPlanas).
