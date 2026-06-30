@@ -3,3 +3,7 @@ Entregar:
 (a) descrição/detalhamento do problema;
 (b) código fonte python (ou outra linguagem) da solução do problema;
 (c) representações visuais da solução (e.g., gráficos, tabelas, mapas dinâmico, simulação visual).
+
+## Resolução
+
+Veja [aqui](https://github.com/erickabellaaluno/GitHub-AI-Hiring-Analyzer) o repositório no Github
