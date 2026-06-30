@@ -21,7 +21,7 @@ Now, you have to insert the remaining solutions. Here's a todo list:
 - [x] [`entregar-outro-problema-engenharia`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODMwODA3ODA5/details)
 - [x] [`escolher-resolver-problema-engenharia`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODY4MDAzNTI3/details/)
 - [x] [`evolucao-tecnica-solucao-atividade-anterior`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY1NzkxMDYxODM4/details/)
-- [ ] [`modularizacao-codigo-avaliacao-llms`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MTQzMjAxNjY2/details/)
+- [x] [`modularizacao-codigo-avaliacao-llms`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MTQzMjAxNjY2/details/)
 - [ ] [`desenvolvimento-assistido-ia-portal-alegrete`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NjI2NzM2/details/)
 
 ## Tips?
