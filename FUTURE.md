@@ -15,12 +15,12 @@ Now, you have to insert the remaining solutions. Here's a todo list:
 
 - [x] [`exercicios-listas-vetores-arrays-python`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3MjM1NDcyNTQ0/details/)
 - [x] [`formulacao-resolucao-problemas-vetores-listas-llms`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3NDczMzk3Mzgy/details/)
-- [ ] [`gerar-versoes-codigo`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzMDE2ODMyNDUy/details/)
-- [ ] [`problemas-outros-disciplinas`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzNjU2NzEyMTk1/details/)
-- [ ] [`escolher-entregar-problemas-engenharia`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY0MTM1NzI0NTcx/details/)
-- [ ] [`entregar-outro-problema-engenharia`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODMwODA3ODA5/details)
-- [ ] [`escolher-resolver-problema-engenharia`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODY4MDAzNTI3/details/)
-- [ ] [`evolucao-tecnica-solucao-atividade-anterior`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY1NzkxMDYxODM4/details/)
+- [x] [`gerar-versoes-codigo`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzMDE2ODMyNDUy/details/)
+- [x] [`problemas-outros-disciplinas`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODYzNjU2NzEyMTk1/details/)
+- [x] [`escolher-entregar-problemas-engenharia`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY0MTM1NzI0NTcx/details/)
+- [x] [`entregar-outro-problema-engenharia`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODMwODA3ODA5/details)
+- [x] [`escolher-resolver-problema-engenharia`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk3ODY4MDAzNTI3/details/)
+- [x] [`evolucao-tecnica-solucao-atividade-anterior`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/ODY1NzkxMDYxODM4/details/)
 - [ ] [`modularizacao-codigo-avaliacao-llms`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MTQzMjAxNjY2/details/)
 - [ ] [`desenvolvimento-assistido-ia-portal-alegrete`](https://classroom.google.com/c/Nzk2NTIwNDI4Nzg1/a/Nzk4MjE2NjI2NzM2/details/)
 

@@ -30,3 +30,7 @@ Nota: use o seu login institucional para acessar o documento online a seguir.
 https://docs.google.com/document/d/1vvgs1dB4EZEOJnQHdL_-fAGr_izVgRA3/edit?usp=sharing&ouid=115631862484439918947&rtpof=true&sd=true
 
 Em caso de dúvidas, chame o professor em sala de aula.
+
+## Resolução
+
+Veja [aqui](https://github.com/erickabellaaluno/Modulariza-o-de-C-digo-e-Avalia-o-de-LLMs) o repositório no Github

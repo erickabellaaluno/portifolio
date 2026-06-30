@@ -27,3 +27,7 @@ Note: use your institutional login to access the online document linked below.
 https://docs.google.com/document/d/1vvgs1dB4EZEOJnQHdL_-fAGr_izVgRA3/edit?usp=sharing&ouid=115631862484439918947&rtpof=true&sd=true
 
 If in doubt, ask the instructor during class.
+
+## Resolution
+
+View the GitHub repository [here](https://github.com/erickabellaaluno/Modulariza-o-de-C-digo-e-Avalia-o-de-LLMs).
