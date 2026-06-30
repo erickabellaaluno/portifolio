@@ -95,3 +95,7 @@ Possíveis evoluções futuras.
 Objetivo Final da Tarefa
 ======================
 Produzir catálogos, bases de dados, imagens, vídeos, galerias, conteúdos e ferramentas que possam ser efetivamente aproveitados para enriquecer o portal alegrete.org e torná-lo uma fonte cada vez mais completa de informações sobre a cidade de Alegrete-RS.
+
+## Resolução
+
+Veja [aqui](https://github.com/erickabellaaluno/Portal-Alegrete.org) o repositório no Github

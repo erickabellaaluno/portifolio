@@ -101,3 +101,7 @@ Possible future improvements.
 Final Objective of the Task
 ======================
 Produce catalogs, databases, images, videos, galleries, content and tools that can be effectively used to enrich the portal alegrete.org and make it an increasingly complete source of information about the city of Alegrete-RS.
+
+## Resolution
+
+View the GitHub repository [here](https://github.com/erickabellaaluno/Portal-Alegrete.org).
