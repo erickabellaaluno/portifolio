@@ -16,3 +16,7 @@ Special attention to:
 => quality of visualizations;
 => robustness, reliability and organization of the code;
 => more effective use of LLMs to solve the problem.
+
+## Resolution
+
+View the GitHub repository [here](https://github.com/erickabellaaluno/GitHub-AI-Hiring-Analyzer2).
